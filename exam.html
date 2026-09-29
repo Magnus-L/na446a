@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Exam · NA446A Python</title>
+<meta name="description" content="Programming and Data Management, Part II (Python): course site">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Lato:wght@400;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/style.css">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 64 64%22%3E%3Crect width=%2264%22 height=%2264%22 rx=%2212%22 fill=%22%23232b65%22/%3E%3Ctext x=%2232%22 y=%2242%22 font-family=%22sans-serif%22 font-size=%2228%22 font-weight=%22700%22 fill=%22white%22 text-anchor=%22middle%22%3EPy%3C/text%3E%3C/svg%3E">
+</head>
+<body>
+<header class="top">
+  <div class="wrap">
+    <a class="brand" href="index.html"><b>NA446A</b> <span>Python for data you can trust</span></a>
+    <nav>
+      <a href="index.html">Course</a>
+      <a href="setup.html">Setup</a>
+      <a href="sessions.html">Sessions</a>
+      <a href="ai.html">AI in this course</a>
+      <a href="exam.html">Exam</a>
+    </nav>
+  </div>
+</header>
+<main class="wrap">
+<h1>Exam</h1>
+<p class="subtitle">Written digital exam in an exam hall, without aids
+and without AI.</p>
+<table>
+<thead>
+<tr>
+<th></th>
+<th>Date</th>
+<th>Time</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Exam</td>
+<td>Saturday 7 November 2026</td>
+<td>14:15–16:15 (preliminary)</td>
+</tr>
+<tr>
+<td>Re-exam</td>
+<td>Friday 4 December 2026</td>
+<td>14:15–16:15 (preliminary)</td>
+</tr>
+</tbody>
+</table>
+<p>The exam covers both parts of the course. Final details of the format
+are posted here and on Blackboard at the start of the course.</p>
+<h2 id="the-python-part">The Python part</h2>
+<p>Most questions show a few lines of code and ask what they produce, or
+ask what goes wrong in a piece of data work: the skills you practise in
+the labs, done in your head. Nothing needs to be memorised beyond what
+you use in the labs.</p>
+<p><strong>Sample exam for the Python part:</strong> posted here by
+Monday 12 October.</p>
+<p><strong>Best preparation:</strong> do each session’s self-test
+without AI, predict before you run, and redo the lab tasks from
+scratch.</p>
+</main>
+<footer class="wrap">
+  <p>Programming and Data Management for Economics and Finance (NA446A), Part II: Python.
+  Örebro University, autumn 2026. Teacher: Magnus Lodefalk.</p>
+  <p>Written in plain text and built with pandoc; every code snippet on this site is run before it is published.
+  Hosted by the <a href="https://ai-econlab.com">AI-Econ Lab</a>. Updated 2026-09-29.</p>
+</footer>
+<script>
+document.querySelectorAll("pre").forEach(function (pre) {
+  var b = document.createElement("button");
+  b.className = "copy"; b.type = "button"; b.textContent = "Copy";
+  b.addEventListener("click", function () {
+    var txt = pre.querySelector("code") ? pre.querySelector("code").innerText : pre.innerText;
+    navigator.clipboard.writeText(txt).then(function () {
+      b.textContent = "Copied"; setTimeout(function () { b.textContent = "Copy"; }, 1500);
+    });
+  });
+  pre.appendChild(b);
+});
+</script>
+</body>
+</html>

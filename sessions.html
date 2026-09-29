@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Sessions · NA446A Python</title>
+<meta name="description" content="Programming and Data Management, Part II (Python): course site">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Lato:wght@400;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/style.css">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 64 64%22%3E%3Crect width=%2264%22 height=%2264%22 rx=%2212%22 fill=%22%23232b65%22/%3E%3Ctext x=%2232%22 y=%2242%22 font-family=%22sans-serif%22 font-size=%2228%22 font-weight=%22700%22 fill=%22white%22 text-anchor=%22middle%22%3EPy%3C/text%3E%3C/svg%3E">
+</head>
+<body>
+<header class="top">
+  <div class="wrap">
+    <a class="brand" href="index.html"><b>NA446A</b> <span>Python for data you can trust</span></a>
+    <nav>
+      <a href="index.html">Course</a>
+      <a href="setup.html">Setup</a>
+      <a href="sessions.html">Sessions</a>
+      <a href="ai.html">AI in this course</a>
+      <a href="exam.html">Exam</a>
+    </nav>
+  </div>
+</header>
+<main class="wrap">
+<h1>Sessions</h1>
+<p class="subtitle">Slides, scripts and exercises, posted before each
+session.</p>
+<h2 id="s1">Session 1. Projects and first steps (Tue 13 Oct)</h2>
+<p><strong>Goals.</strong> After this session you can:</p>
+<ol type="1">
+<li>open a Python project in VS Code that has its own environment, and
+run a script;</li>
+<li>organise a project so that someone else can rerun it;</li>
+<li>load a dataset in pandas and inspect it: size, first rows, summary
+statistics.</li>
+</ol>
+<p><strong>Before the session:</strong> complete the <a
+href="setup.html">Setup</a> and read the <a href="ai.html">AI
+rules</a>.</p>
+<p><strong>Slides:</strong> <a href="s1-handout.pdf">handout, questions
+without answers (PDF)</a>. The version with answers is posted after the
+session.</p>
+<p><strong>Lab:</strong> in class. Steps 1–3 from the slides as one
+script, then <em>fix an AI-written script</em>: it runs without an error
+but gives a wrong answer, and you find the bug by testing a case whose
+answer you know.</p>
+<h2 id="session-2.-working-with-data-thu-15-oct-to-be-confirmed">Session
+2. Working with data (Thu 15 Oct, to be confirmed)</h2>
+<p>Posted before the session.</p>
+<h2 id="session-3.-combining-data-tue-27-oct">Session 3. Combining data
+(Tue 27 Oct)</h2>
+<p>Posted before the session.</p>
+<h2 id="session-4.-getting-data-and-scaling-up-thu-29-oct">Session 4.
+Getting data and scaling up (Thu 29 Oct)</h2>
+<p>Posted before the session.</p>
+</main>
+<footer class="wrap">
+  <p>Programming and Data Management for Economics and Finance (NA446A), Part II: Python.
+  Örebro University, autumn 2026. Teacher: Magnus Lodefalk.</p>
+  <p>Written in plain text and built with pandoc; every code snippet on this site is run before it is published.
+  Hosted by the <a href="https://ai-econlab.com">AI-Econ Lab</a>. Updated 2026-09-29.</p>
+</footer>
+<script>
+document.querySelectorAll("pre").forEach(function (pre) {
+  var b = document.createElement("button");
+  b.className = "copy"; b.type = "button"; b.textContent = "Copy";
+  b.addEventListener("click", function () {
+    var txt = pre.querySelector("code") ? pre.querySelector("code").innerText : pre.innerText;
+    navigator.clipboard.writeText(txt).then(function () {
+      b.textContent = "Copied"; setTimeout(function () { b.textContent = "Copy"; }, 1500);
+    });
+  });
+  pre.appendChild(b);
+});
+</script>
+</body>
+</html>

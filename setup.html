@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Setup · NA446A Python</title>
+<meta name="description" content="Programming and Data Management, Part II (Python): course site">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Lato:wght@400;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/style.css">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 64 64%22%3E%3Crect width=%2264%22 height=%2264%22 rx=%2212%22 fill=%22%23232b65%22/%3E%3Ctext x=%2232%22 y=%2242%22 font-family=%22sans-serif%22 font-size=%2228%22 font-weight=%22700%22 fill=%22white%22 text-anchor=%22middle%22%3EPy%3C/text%3E%3C/svg%3E">
+</head>
+<body>
+<header class="top">
+  <div class="wrap">
+    <a class="brand" href="index.html"><b>NA446A</b> <span>Python for data you can trust</span></a>
+    <nav>
+      <a href="index.html">Course</a>
+      <a href="setup.html">Setup</a>
+      <a href="sessions.html">Sessions</a>
+      <a href="ai.html">AI in this course</a>
+      <a href="exam.html">Exam</a>
+    </nav>
+  </div>
+</header>
+<main class="wrap">
+<h1>Set up Python</h1>
+<p class="subtitle">About 20 minutes, before the first Python
+session.</p>
+<p>Do this <strong>before the first Python session</strong>, at home, on
+the laptop you will bring. It takes about 20 minutes, most of it waiting
+for downloads. When the last step prints
+<code>All good: you are ready for the course.</code> you are done.</p>
+<p>You install three things: <strong>uv</strong> (it fetches Python and
+the course packages for you), <strong>VS Code</strong> (where you write
+and run code) and <strong>the course folder</strong>. You do not need to
+install Python yourself, and you do not need Anaconda.</p>
+<h2 id="step-1.-install-uv-2-minutes">Step 1. Install uv (2
+minutes)</h2>
+<p><strong>Mac:</strong> open <em>Terminal</em> (press Cmd+Space, type
+Terminal) and paste:</p>
+<pre><code>curl -LsSf https://astral.sh/uv/install.sh | sh</code></pre>
+<p><strong>Windows:</strong> open <em>PowerShell</em> (press the Windows
+key, type PowerShell) and paste:</p>
+<pre><code>powershell -ExecutionPolicy ByPass -c &quot;irm https://astral.sh/uv/install.ps1 | iex&quot;</code></pre>
+<p>Then <strong>close the window and open a new one</strong>, and type
+<code>uv --version</code>. You should see a version number.</p>
+<h2 id="step-2.-install-vs-code-5-minutes">Step 2. Install VS Code (5
+minutes)</h2>
+<p>Download VS Code from code.visualstudio.com and install it. Open it,
+click the Extensions icon on the left (four squares), search for
+<strong>Python</strong> and install the one by Microsoft.</p>
+<h2 id="step-3.-get-the-course-folder-1-minute">Step 3. Get the course
+folder (1 minute)</h2>
+<p>Download <strong><a
+href="na446a-starter.zip">na446a-starter.zip</a></strong>, unzip it, and
+move the folder <code>na446a-starter</code> to your Documents folder.
+Not the Desktop, not Downloads, and not inside a OneDrive or iCloud
+folder that syncs while you work.</p>
+<h2 id="step-4.-install-python-and-the-course-packages-510-minutes">Step
+4. Install Python and the course packages (5–10 minutes)</h2>
+<p>In VS Code: <em>File → Open Folder…</em> and choose
+<code>na446a-starter</code>. Then <em>Terminal → New Terminal</em> and
+type:</p>
+<pre><code>uv sync</code></pre>
+<p>uv downloads the right Python and the course packages into a hidden
+folder <code>.venv</code> inside the course folder. Nothing else on your
+computer changes.</p>
+<h2 id="step-5.-check-that-everything-works-1-minute">Step 5. Check that
+everything works (1 minute)</h2>
+<p>Open <code>code/check_setup.py</code> and press the play button (▷)
+at the top right. If VS Code asks which Python to use, choose the one
+that mentions <code>.venv</code>. Every line should say OK:</p>
+<pre><code>Python 3.12 or newer                     OK
+Course packages installed                OK
+Read a CSV from data/raw                 OK
+Save a figure to output/                 OK
+Run SQL with DuckDB                      OK
+Running inside the project&#39;s .venv       OK
+
+All good: you are ready for the course.</code></pre>
+<h2 id="if-something-fails">If something fails</h2>
+<ol type="1">
+<li><strong><code>uv</code> is not found:</strong> you did not open a
+new terminal after Step 1. Close it, open a new one.</li>
+<li><strong>The last check says “not the course environment”:</strong>
+press Ctrl+Shift+P (Cmd+Shift+P on a Mac), type <em>Python: Select
+Interpreter</em> and choose the one with <code>.venv</code>.</li>
+<li><strong>Anything else:</strong> email <a
+href="mailto:magnus.lodefalk@oru.se">magnus.lodefalk@oru.se</a> with the
+subject <em>NA446A setup</em>, and paste three things: what you did,
+what you expected, and <strong>all</strong> the output from
+<code>check_setup.py</code>. A screenshot of the error helps too.</li>
+<li><strong>Your laptop will not cooperate</strong> (work laptop without
+admin rights, very old machine): come to the setup drop-in, or use the
+browser version (Plan B) for now.</li>
+</ol>
+<p><strong>Setup drop-in:</strong> one online drop-in before the first
+Python session; the date and link will be posted here.</p>
+<h2 id="plan-b-no-installation-at-all">Plan B: no installation at
+all</h2>
+<p>If nothing works before the course, you can follow the first sessions
+in the browser with <strong>Google Colab</strong>
+(colab.research.google.com, a free Google account is needed): it runs
+Python in the browser with pandas already installed, enough for the
+first session’s steps. Fix the laptop setup before Session 2; the course
+is designed for your own computer.</p>
+<h2 id="what-you-just-installed-in-one-paragraph">What you just
+installed, in one paragraph</h2>
+<p><strong>uv</strong> manages Python versions and packages, like
+Stata’s <code>ssc install</code> but for the whole project at once.
+<strong><code>.venv</code></strong> is the course’s own Python with its
+own packages, so the course cannot break other Python on your computer,
+and other projects cannot break the course. <strong>VS Code</strong> is
+the editor; the <em>terminal</em> inside it is where you type commands.
+You will use the same three pieces in your thesis.</p>
+</main>
+<footer class="wrap">
+  <p>Programming and Data Management for Economics and Finance (NA446A), Part II: Python.
+  Örebro University, autumn 2026. Teacher: Magnus Lodefalk.</p>
+  <p>Written in plain text and built with pandoc; every code snippet on this site is run before it is published.
+  Hosted by the <a href="https://ai-econlab.com">AI-Econ Lab</a>. Updated 2026-09-29.</p>
+</footer>
+<script>
+document.querySelectorAll("pre").forEach(function (pre) {
+  var b = document.createElement("button");
+  b.className = "copy"; b.type = "button"; b.textContent = "Copy";
+  b.addEventListener("click", function () {
+    var txt = pre.querySelector("code") ? pre.querySelector("code").innerText : pre.innerText;
+    navigator.clipboard.writeText(txt).then(function () {
+      b.textContent = "Copied"; setTimeout(function () { b.textContent = "Copy"; }, 1500);
+    });
+  });
+  pre.appendChild(b);
+});
+</script>
+</body>
+</html>

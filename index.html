@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Course · NA446A Python</title>
+<meta name="description" content="Programming and Data Management, Part II (Python): course site">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Lato:wght@400;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/style.css">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 64 64%22%3E%3Crect width=%2264%22 height=%2264%22 rx=%2212%22 fill=%22%23232b65%22/%3E%3Ctext x=%2232%22 y=%2242%22 font-family=%22sans-serif%22 font-size=%2228%22 font-weight=%22700%22 fill=%22white%22 text-anchor=%22middle%22%3EPy%3C/text%3E%3C/svg%3E">
+</head>
+<body>
+<header class="top">
+  <div class="wrap">
+    <a class="brand" href="index.html"><b>NA446A</b> <span>Python for data you can trust</span></a>
+    <nav>
+      <a href="index.html">Course</a>
+      <a href="setup.html">Setup</a>
+      <a href="sessions.html">Sessions</a>
+      <a href="ai.html">AI in this course</a>
+      <a href="exam.html">Exam</a>
+    </nav>
+  </div>
+</header>
+<main class="wrap">
+
+<div class="hero">
+<p class="kicker">
+NA446A · Örebro University · Autumn 2026
+</p>
+<h1 id="from-raw-data-to-results-you-can-trust">From raw data to results
+you can trust</h1>
+<p class="lead">
+The Python part of Programming and Data Management for Economics and
+Finance. Four sessions on the work behind every empirical result:
+getting data, checking it, combining it, and producing a table that
+anyone can rebuild from the raw files.
+</p>
+<div class="buttons">
+<p><a class="btn primary" href="setup.html">Set up Python (20 min)</a>
+<a class="btn" href="sessions.html">Sessions</a>
+<a class="btn" href="ai.html">AI rules and tutor prompt</a></p>
+</div>
+</div>
+<p class="principle">
+Every number in this course comes from code that someone else can rerun.
+That is the standard in economics journals, and it is the standard here.
+</p>
+<h2 id="schedule">Schedule</h2>
+<table>
+<colgroup>
+<col style="width: 33%" />
+<col style="width: 33%" />
+<col style="width: 33%" />
+</colgroup>
+<thead>
+<tr>
+<th>Date</th>
+<th>Session</th>
+<th>Materials</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Tue 13 Oct · 10:15 · P258</td>
+<td><strong>1. Projects and first steps.</strong> Open a project,
+organise it so others can rerun it, load and inspect data</td>
+<td><span class="badge live">slides</span> <a
+href="sessions.html#s1">→</a></td>
+</tr>
+<tr>
+<td>Thu 15 Oct · 08:15 · T129</td>
+<td><strong>2. Working with data.</strong> Check every variable, fix
+types and missing values, create and aggregate</td>
+<td><span class="badge">posted before class</span></td>
+</tr>
+<tr>
+<td>Tue 27 Oct · 10:15 · P258</td>
+<td><strong>3. Combining data.</strong> Merge with checks, append,
+reshape, build a register-style panel</td>
+<td><span class="badge">posted before class</span></td>
+</tr>
+<tr>
+<td>Thu 29 Oct · 10:15 · P258</td>
+<td><strong>4. Getting data and scaling up.</strong> Fetch open data,
+loop over files, one script that runs everything</td>
+<td><span class="badge">posted before class</span></td>
+</tr>
+<tr>
+<td>Sat 7 Nov · 14:15</td>
+<td><strong>Exam</strong> (both parts), digital, in an exam hall</td>
+<td><a href="exam.html">sample exam</a></td>
+</tr>
+</tbody>
+</table>
+<p>The 15 October session is to be confirmed. Part I (MATLAB, Kamil
+Kladívko) runs in the weeks between.</p>
+<h2 id="how-each-session-works">How each session works</h2>
+<div class="cards">
+<div class="card">
+<p><strong>Before</strong> · a short video and two or three questions to
+check yourself.</p>
+</div>
+<div class="card">
+<p><strong>In class</strong> · real code with its real output, a
+question every 15 minutes, then a lab with help in the room.</p>
+</div>
+<div class="card">
+<p><strong>After</strong> · one exercise, easy to hard, with a
+self-check script. Solutions here after three days.</p>
+</div>
+<div class="card">
+<p><strong>Test yourself</strong> · a few questions without AI, the way
+the exam works.</p>
+</div>
+</div>
+<h2 id="what-you-need">What you need</h2>
+<p>Your own laptop (Mac or Windows) with the course setup done before
+the first Python session: <a href="setup.html">Setup</a>. No earlier
+Python is needed; Part I gives you the programming basics, and session 1
+starts with a short bridge from MATLAB to Python.</p>
+<h2 id="questions">Questions</h2>
+<p>Email <a
+href="mailto:magnus.lodefalk@oru.se">magnus.lodefalk@oru.se</a> with
+<em>NA446A</em> in the subject line.</p>
+</main>
+<footer class="wrap">
+  <p>Programming and Data Management for Economics and Finance (NA446A), Part II: Python.
+  Örebro University, autumn 2026. Teacher: Magnus Lodefalk.</p>
+  <p>Written in plain text and built with pandoc; every code snippet on this site is run before it is published.
+  Hosted by the <a href="https://ai-econlab.com">AI-Econ Lab</a>. Updated 2026-09-29.</p>
+</footer>
+<script>
+document.querySelectorAll("pre").forEach(function (pre) {
+  var b = document.createElement("button");
+  b.className = "copy"; b.type = "button"; b.textContent = "Copy";
+  b.addEventListener("click", function () {
+    var txt = pre.querySelector("code") ? pre.querySelector("code").innerText : pre.innerText;
+    navigator.clipboard.writeText(txt).then(function () {
+      b.textContent = "Copied"; setTimeout(function () { b.textContent = "Copy"; }, 1500);
+    });
+  });
+  pre.appendChild(b);
+});
+</script>
+</body>
+</html>
