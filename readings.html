@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Readings · NA446A Python</title>
+<meta name="description" content="Programming and Data Management, Part II (Python): course site">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Lato:wght@400;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/style.css">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 64 64%22%3E%3Crect width=%2264%22 height=%2264%22 rx=%2212%22 fill=%22%23232b65%22/%3E%3Ctext x=%2232%22 y=%2242%22 font-family=%22sans-serif%22 font-size=%2228%22 font-weight=%22700%22 fill=%22white%22 text-anchor=%22middle%22%3EPy%3C/text%3E%3C/svg%3E">
+</head>
+<body>
+<header class="top">
+  <div class="wrap">
+    <a class="brand" href="index.html"><b>NA446A</b> <span>Python for data you can trust</span></a>
+    <nav>
+      <a href="index.html">Course</a>
+      <a href="setup.html">Setup</a>
+      <a href="sessions.html">Sessions</a>
+      <a href="readings.html">Readings</a>
+      <a href="ai.html">AI in this course</a>
+      <a href="exam.html">Exam</a>
+    </nav>
+  </div>
+</header>
+<main class="wrap">
+<h1>Readings</h1>
+<p class="subtitle">Short and open. Read the parts named here; each
+takes 15–25 minutes.</p>
+<p>The exam includes one or two questions on these readings.</p>
+<table>
+<colgroup>
+<col style="width: 33%" />
+<col style="width: 33%" />
+<col style="width: 33%" />
+</colgroup>
+<thead>
+<tr>
+<th>When</th>
+<th>Read</th>
+<th>Why</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Before session 1 (required)</strong></td>
+<td>Bryan, K. A. (2025). <a
+href="https://kevinbryanecon.com/techstack.html">Social Science PhD Tech
+Stack</a>. Memo, University of Toronto. Read the introduction and the
+three “Reproducibility” parts: <em>Starting a Project</em>, <em>Version
+Control</em> (skim the git commands) and <em>What to Use for
+Code</em>.</td>
+<td>What reproducible, efficient and open mean, and how a leading
+economist sets up every project</td>
+</tr>
+<tr>
+<td>Before session 1 (optional)</td>
+<td>Bastani, H. et al. (2025). <a
+href="https://doi.org/10.1073/pnas.2422633122">Generative AI without
+guardrails can harm learning</a>. <em>PNAS</em> 122(26): e2422633122.
+The abstract only.</td>
+<td>Why the course’s AI rules look the way they do</td>
+</tr>
+<tr>
+<td><strong>Before session 2</strong></td>
+<td>Turrell, A. et al. <em>Coding for Economists</em>, <a
+href="https://aeturrell.github.io/coding-for-economists/data-analysis-quickstart.html">Data
+Analysis Quickstart</a>. Read from <em>Loading data</em> to <em>Add
+transformed columns</em>; skip <em>Randomly selecting a sample</em> and
+<em>Rename</em>.</td>
+<td>The pandas operations of session 2, explained for economists</td>
+</tr>
+<tr>
+<td><strong>Before session 3</strong></td>
+<td>Gentzkow, M. and J. M. Shapiro (2014). <a
+href="https://web.stanford.edu/~gentzkow/research/CodeAndData.pdf">Code
+and Data for the Social Sciences: A Practitioner’s Guide</a>. Chapter 5,
+<em>Keys</em>, pp. 18–21.</td>
+<td>Why merges go wrong, and the rule that prevents it: unique,
+non-missing keys</td>
+</tr>
+<tr>
+<td><strong>Before session 4</strong></td>
+<td>Gentzkow and Shapiro (2014), Chapter 2, <em>Automation</em>,
+pp. 6–10.</td>
+<td>One script that runs everything, and the delete-the-outputs
+test</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Reference, not reading:</strong> the pandas user guide pages
+on <a
+href="https://pandas.pydata.org/docs/user_guide/missing_data.html">missing
+data</a>, <a
+href="https://pandas.pydata.org/docs/user_guide/merging.html">merging</a>
+and <a
+href="https://pandas.pydata.org/docs/user_guide/reshaping.html">reshaping</a>.
+Look things up there when you need them.</p>
+</main>
+<footer class="wrap">
+  <p>Programming and Data Management for Economics and Finance (NA446A), Part II: Python.
+  Örebro University, autumn 2026. Teacher: <a href="https://magnuslodefalk.com">Magnus Lodefalk</a>.</p>
+  <p>Written in plain text and built with pandoc; every code snippet on this site is run before it is published. Updated 2026-09-29.</p>
+</footer>
+<script>
+document.querySelectorAll("pre").forEach(function (pre) {
+  var b = document.createElement("button");
+  b.className = "copy"; b.type = "button"; b.textContent = "Copy";
+  b.addEventListener("click", function () {
+    var txt = pre.querySelector("code") ? pre.querySelector("code").innerText : pre.innerText;
+    navigator.clipboard.writeText(txt).then(function () {
+      b.textContent = "Copied"; setTimeout(function () { b.textContent = "Copy"; }, 1500);
+    });
+  });
+  pre.appendChild(b);
+});
+</script>
+</body>
+</html>
