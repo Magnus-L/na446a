@@ -65,3 +65,5 @@ button.copy { position: absolute; top: .4rem; right: .4rem; font: 600 .75rem "La
   padding: .2rem .5rem; border-radius: 4px; border: 1px solid var(--line); background: var(--bg); color: var(--muted); cursor: pointer; }
 button.copy:hover { color: var(--accent2); }
 @media (max-width: 520px) { .hero h1 { font-size: 1.9rem; } body { font-size: 16px; } }
+
+pre.text, pre.text code { white-space: pre-wrap; word-break: break-word; }
