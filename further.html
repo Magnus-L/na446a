@@ -55,11 +55,11 @@ and work through the deck with the script open beside it.</p>
 <tbody>
 <tr>
 <td><strong>F1 Panel regressions</strong></td>
-<td>Pooled OLS, fixed and random effects, clustered standard errors,
-Hausman and Mundlak tests, one table; the Python version of
-<code>xtreg</code></td>
+<td>Pooled OLS, person and two-way fixed effects, clustered standard
+errors, one table; the Python version of <code>reghdfe</code> (random
+effects in an appendix)</td>
 <td>Sessions 3–4</td>
-<td>about 90 min</td>
+<td>about 75 min</td>
 <td><a href="further-f1-panel-regressions.zip">zip</a></td>
 </tr>
 <tr>
@@ -71,6 +71,15 @@ effects, and the trap of perfect separation</td>
 <td><a href="further-f2-binary-outcomes.zip">zip</a></td>
 </tr>
 <tr>
+<td><strong>F4 Difference-in-differences and event studies</strong></td>
+<td>The 2×2 DiD by hand, the same as a two-way fixed-effects regression,
+an event study with pre-trends, Poisson with fixed effects for counts;
+on synthetic register-style data where the true effect is known</td>
+<td>Sessions 3–4, F1</td>
+<td>about 75 min</td>
+<td><a href="further-f4-did-event-study.zip">zip</a></td>
+</tr>
+<tr>
 <td><strong>F3 Time series</strong></td>
 <td>Months to quarters, a Phillips curve with Newey–West standard
 errors, autocorrelation, AR(1), and why these are correlations</td>
@@ -80,8 +89,11 @@ errors, autocorrelation, AR(1), and why these are correlations</td>
 </tr>
 </tbody>
 </table>
-<p>F1 needs one extra package. In the VS Code terminal of your course
-folder, type <code>uv add linearmodels</code> once.</p>
+<p>F1 and F4 use <strong>pyfixest</strong>, the package the AI-Econ Lab
+uses in its own papers. In the VS Code terminal of your course folder,
+type <code>uv add pyfixest</code> once (F1’s optional appendix also uses
+<code>uv add linearmodels</code>). These modules use the same tools and
+conventions as the lab’s published replication packages.</p>
 <p><strong>Coming later: causal machine learning.</strong> A module on
 the Modified Causal Forest, a method for estimating how the effect of a
 programme differs across people, developed with its author, Michael
