@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Exam · NA446A Python</title>
+<title>Further topics · NA446A Python</title>
 <meta name="description" content="Programming and Data Management, Part II (Python): course site">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Lato:wght@400;700&display=swap" rel="stylesheet">
@@ -27,44 +27,66 @@
   </div>
 </header>
 <main class="wrap">
-<h1>Exam</h1>
-<p class="subtitle">Written digital exam in an exam hall, without aids
-and without AI.</p>
+<h1>Further topics</h1>
+<p class="subtitle">Optional self-study for those who want to go
+further. Not examined.</p>
+<p>These modules take you beyond the four sessions, into the
+econometrics you already know from Stata, now done in Python. Each has a
+short deck, one script that reproduces every number on the slides, the
+data (offline) and a README. Unzip a module inside your course folder
+and work through the deck with the script open beside it.</p>
 <table>
+<colgroup>
+<col style="width: 20%" />
+<col style="width: 20%" />
+<col style="width: 20%" />
+<col style="width: 20%" />
+<col style="width: 20%" />
+</colgroup>
 <thead>
 <tr>
-<th></th>
-<th>Date</th>
+<th>Module</th>
+<th>What you learn</th>
+<th>After</th>
 <th>Time</th>
+<th>Download</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td>Exam</td>
-<td>Saturday 7 November 2026</td>
-<td>14:15–16:15 (preliminary)</td>
+<td><strong>F1 Panel regressions</strong></td>
+<td>Pooled OLS, fixed and random effects, clustered standard errors,
+Hausman and Mundlak tests, one table; the Python version of
+<code>xtreg</code></td>
+<td>Sessions 3–4</td>
+<td>about 90 min</td>
+<td><a href="further-f1-panel-regressions.zip">zip</a></td>
 </tr>
 <tr>
-<td>Re-exam</td>
-<td>Friday 4 December 2026</td>
-<td>14:15–16:15 (preliminary)</td>
+<td><strong>F2 Binary outcomes</strong></td>
+<td>Linear probability model, logit, odds ratios, average marginal
+effects, and the trap of perfect separation</td>
+<td>Sessions 2 and 4</td>
+<td>60–75 min</td>
+<td><a href="further-f2-binary-outcomes.zip">zip</a></td>
+</tr>
+<tr>
+<td><strong>F3 Time series</strong></td>
+<td>Months to quarters, a Phillips curve with Newey–West standard
+errors, autocorrelation, AR(1), and why these are correlations</td>
+<td>Session 4</td>
+<td>60–75 min</td>
+<td><a href="further-f3-time-series.zip">zip</a></td>
 </tr>
 </tbody>
 </table>
-<p>The exam covers both parts of the course. Final details of the format
-are posted here and on Blackboard at the start of the course.</p>
-<h2 id="the-python-part">The Python part</h2>
-<p>Two kinds of question, as in WISEflow. <strong>One correct
-answer:</strong> most show a few lines of code and ask what they
-produce. <strong>Tick every true statement:</strong> four statements
-about a piece of data work, of which one or more are true. The skills
-are the ones you practise in the labs, done in your head, and one or two
-questions are on the <a href="readings.html">readings</a>.</p>
-<p><strong><a href="sample-exam.html">Sample exam for the Python
-part</a></strong>: ten questions with answers and explanations.</p>
-<p><strong>Best preparation:</strong> do each session’s self-test
-without AI, predict before you run, and redo the lab tasks from
-scratch.</p>
+<p>F1 needs one extra package. In the VS Code terminal of your course
+folder, type <code>uv add linearmodels</code> once.</p>
+<p><strong>Coming later: causal machine learning.</strong> A module on
+the Modified Causal Forest, a method for estimating how the effect of a
+programme differs across people, developed with its author, Michael
+Lechner (University of St. Gallen and guest professor at Örebro
+University).</p>
 </main>
 <footer class="wrap">
   <p>Programming and Data Management for Economics and Finance (NA446A), Part II: Python.
