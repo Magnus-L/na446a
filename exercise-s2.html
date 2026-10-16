@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Exercise S2 · NA446A Python</title>
+<meta name="description" content="Programming and Data Management, Part II (Python): course site">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Lato:wght@400;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/style.css">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 64 64%22%3E%3Crect width=%2264%22 height=%2264%22 rx=%2212%22 fill=%22%23232b65%22/%3E%3Ctext x=%2232%22 y=%2242%22 font-family=%22sans-serif%22 font-size=%2228%22 font-weight=%22700%22 fill=%22white%22 text-anchor=%22middle%22%3EPy%3C/text%3E%3C/svg%3E">
+</head>
+<body>
+<header class="top">
+  <div class="wrap">
+    <a class="brand" href="index.html"><b>NA446A</b> <span>Python for data you can trust</span></a>
+    <nav>
+      <a href="index.html">Course</a>
+      <a href="setup.html">Setup</a>
+      <a href="sessions.html">Sessions</a>
+      <a href="readings.html">Readings</a>
+      <a href="data.html">Data</a>
+      <a href="ai.html">AI in this course</a>
+      <a href="exam.html">Exam</a>
+      <a href="further.html">Further topics</a>
+    </nav>
+  </div>
+</header>
+<main class="wrap">
+<h1>Exercise after Session 2: a Titanic intake</h1>
+<p class="subtitle">Formative, no hand-in. About 90 minutes. Solution on
+the site three days after the session.</p>
+<h2 id="why-this-exercise">Why this exercise</h2>
+<p>In the session you ran the intake checklist on one file. Here you run
+all of it on a new one, the passenger list of the Titanic (891
+passengers, 12 variables, a public teaching dataset). The exam asks you
+to read code like this and predict what it does, without AI. So try each
+task yourself first; use the <a href="ai.html">tutor prompt</a> if you
+are stuck, not a chatbot that writes it for you.</p>
+<h2 id="what-you-need">What you need</h2>
+<p>The Session 2 lab folder, which you already placed inside your course
+folder (<code>na446a-starter</code>) for the lab. It holds
+<code>titanic_intake.py</code> (the script you fill in),
+<code>check_exercise_s2.py</code> (the self-check) and
+<code>data/raw/titanic.csv</code>. Open the lab folder in VS Code.</p>
+<p>Work in <code>titanic_intake.py</code>, one cell at a time, and
+<strong>use the names given in each TODO</strong> (<code>df</code>,
+<code>miss</code>, <code>flags</code> …): the self-check looks for them.
+Run the self-check whenever you like:</p>
+<div class="sourceCode" id="cb1"><pre
+class="sourceCode bash"><code class="sourceCode bash"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="ex">uv</span> run check_exercise_s2.py</span></code></pre></div>
+<p>It tells you which tasks are right and gives a hint for the others.
+When all is right, the last line reads <code>8 of 8 tasks right.</code>
+It never changes your script.</p>
+<h2 id="tasks-from-easy-to-hard">Tasks, from easy to hard</h2>
+<table>
+<colgroup>
+<col style="width: 33%" />
+<col style="width: 33%" />
+<col style="width: 33%" />
+</colgroup>
+<thead>
+<tr>
+<th>Task</th>
+<th>What to do</th>
+<th>Time</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1. Load and name <em>(easy)</em></td>
+<td>Load the file into <code>df</code>; make every column name lower
+case; print the shape.</td>
+<td>5 min</td>
+</tr>
+<tr>
+<td>2. Types <em>(easy)</em></td>
+<td>Print the types. Which columns are text? Convert
+<code>survived</code>, <code>pclass</code>, <code>sibsp</code>,
+<code>parch</code> to <code>"Int8"</code>.</td>
+<td>10 min</td>
+</tr>
+<tr>
+<td>3. Missing values <em>(medium)</em></td>
+<td><code>miss</code>: one row per variable with <code>n</code> (count)
+and <code>pct</code> (percent, one decimal), most missing first.</td>
+<td>10 min</td>
+</tr>
+<tr>
+<td>4. Ranges <em>(medium)</em></td>
+<td><code>flags</code>: one True/False column per rule, True where a
+value that is <strong>present</strong> breaks it: <code>survived</code>
+in {0, 1}; <code>pclass</code> in {1, 2, 3}; <code>sex</code> in {male,
+female}; <code>embarked</code> in {C, Q, S}; <code>age</code> between 0
+and 100; <code>fare</code> at least 0. Flag, do not drop. Then count the
+fares of exactly 0 (<code>n_zero_fare</code>).</td>
+<td>15 min</td>
+</tr>
+<tr>
+<td>5. Categories <em>(medium)</em></td>
+<td>Value counts of <code>sex</code> and <code>embarked</code>, missing
+included. <code>ct</code>: a crosstab of <code>pclass</code> by
+<code>sex</code> with totals; <code>ct_row</code>: the same in row
+percent.</td>
+<td>10 min</td>
+</tr>
+<tr>
+<td>6. Create <em>(medium)</em></td>
+<td><code>child</code>: 1 if age is below 18, 0 if not, and missing if
+age is missing (type <code>Int8</code>). <code>family_size</code>:
+<code>sibsp + parch + 1</code>.</td>
+<td>15 min</td>
+</tr>
+<tr>
+<td>7. Aggregate <em>(hard)</em></td>
+<td><code>by_class_sex</code>: one row per class and sex with
+<code>n</code>, <code>survival</code> (mean of <code>survived</code>)
+and <code>mean_age</code>, using <code>agg</code>. Then
+<code>class_fare</code>, the mean fare of each passenger’s class, using
+<code>transform</code>, and
+<code>fare_rel = fare / class_fare</code>.</td>
+<td>15 min</td>
+</tr>
+<tr>
+<td>8. Save <em>(easy)</em></td>
+<td>Save <code>df</code> to
+<code>data/processed/titanic_clean.parquet</code>, and a codebook (one
+line per variable) to
+<code>data/processed/titanic_codebook.json</code>.</td>
+<td>5 min</td>
+</tr>
+</tbody>
+</table>
+<h2 id="questions-to-answer-in-your-script-as-comments">Questions to
+answer in your script (as comments)</h2>
+<ol type="1">
+<li>Task 2: which columns are text, and does any of them look like it
+should be a number?</li>
+<li>Task 4: 15 passengers paid a fare of 0. Is 0 a sentinel code for
+“missing”, or a real value? Say what in the data supports your view, and
+what you do with these rows. There is no single right answer; there is a
+right way to argue it.</li>
+<li>Task 6: how many passengers have a missing <code>child</code>, and
+why that number?</li>
+<li>Task 7: how many rows do <code>by_class_sex</code> and
+<code>df</code> have, and why do they differ?</li>
+</ol>
+<h2 id="if-you-finish-early-optional-15-min">If you finish early
+(optional, 15 min)</h2>
+<p>Many passengers share a ticket number. Do passengers on the same
+ticket pay the same fare? If they do, what does <code>fare</code>
+measure, and how would you compute a fare per person? Hint:
+<code>groupby("ticket")</code> with <code>transform("size")</code>.</p>
+<h2 id="two-rules-for-this-exercise">Two rules for this exercise</h2>
+<ul>
+<li>Mark any line that came from an AI with the comment
+<code># AI:</code> and make sure you can explain it.</li>
+<li>The Titanic list is public data. Never paste personal or register
+data into a chatbot.</li>
+</ul>
+</main>
+<footer class="wrap">
+  <p>Programming and Data Management for Economics and Finance (NA446A), Part II: Python.
+  Örebro University, autumn 2026. Teacher: <a href="https://magnuslodefalk.com">Magnus Lodefalk</a>.</p>
+  <p>Written in plain text and built with pandoc; every code snippet on this site is run before it is published. Updated 2026-10-16.</p>
+</footer>
+<script>
+document.querySelectorAll("pre").forEach(function (pre) {
+  var b = document.createElement("button");
+  b.className = "copy"; b.type = "button"; b.textContent = "Copy";
+  b.addEventListener("click", function () {
+    var txt = pre.querySelector("code") ? pre.querySelector("code").innerText : pre.innerText;
+    navigator.clipboard.writeText(txt).then(function () {
+      b.textContent = "Copied"; setTimeout(function () { b.textContent = "Copy"; }, 1500);
+    });
+  });
+  pre.appendChild(b);
+});
+</script>
+</body>
+</html>
