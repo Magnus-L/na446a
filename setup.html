@@ -111,6 +111,44 @@ B below.</li>
 </ol>
 <p><strong>Setup drop-in:</strong> one online drop-in before the first
 Python session; the date and link will be posted here.</p>
+<h2 id="common-problems-in-class">Common problems in class</h2>
+<p>Collected from the sessions; the first two are by far the most
+common.</p>
+<p><strong>“ipykernel is required” or “No module named
+‘pandas’”.</strong> VS Code is using another Python than the course’s
+<code>.venv</code>. The usual reason: you opened the lab folder
+(<code>s1-lab</code>) on its own, so VS Code cannot see
+<code>.venv</code>. Fix: <em>File → Open Folder…</em>
+<code>na446a-starter</code>, with the lab folder inside it; then
+Ctrl+Shift+P (Cmd+Shift+P on a Mac), <em>Python: Select
+Interpreter</em>, the one with <code>.venv</code>; then <em>Restart</em>
+in the Interactive window. Do not click <em>Install</em> on the
+ipykernel message: it installs into the wrong Python.</p>
+<p><strong>Always open the course folder.</strong> Put every lab folder
+you download inside <code>na446a-starter</code>, and open
+<code>na446a-starter</code> in VS Code, never a lab folder on its own.
+Then the right Python is found by itself.</p>
+<p><strong><code>uv</code> is “not recognized”.</strong> The terminal
+was opened before uv was installed. Close VS Code completely and open it
+again. Still not found: install uv (Step 1), then restart VS Code.</p>
+<p><strong><code>No pyproject.toml found</code> when you run
+<code>uv sync</code>.</strong> The terminal is in the wrong folder. Open
+<code>na446a-starter</code> in VS Code and open a new terminal. On
+Windows, check that the folder is not unzipped twice
+(<code>na446a-starter\na446a-starter</code>):
+<code>pyproject.toml</code> must be directly inside the folder you
+open.</p>
+<p><strong>Strange file errors, “Access is denied”.</strong> The course
+folder is in OneDrive, iCloud, Documents or Desktop. Move it to your
+home folder (Step 3), delete <code>.venv</code>, run
+<code>uv sync</code> again.</p>
+<p><strong>Shift+Enter shows nothing on the right.</strong> Shift+Enter
+runs a cell, and cells start with <code># %%</code>. A script without
+them (such as the bug script in Lab 1) is run whole with ▷ at the top
+right, and its output appears in the terminal at the bottom.</p>
+<p><strong><code>NameError: name 'cars' is not defined</code>.</strong>
+A cell further up has not been run yet. Run the file’s cells from the
+top.</p>
 <h2 id="plan-b-if-your-laptop-is-not-ready-in-time">Plan B: if your
 laptop is not ready in time</h2>
 <p>Come to Session 1 anyway and work with a classmate on their laptop
