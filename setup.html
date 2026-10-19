@@ -97,6 +97,10 @@ Run SQL with DuckDB                      OK
 Running inside the project&#39;s .venv       OK
 
 All good: you are ready for the course.</code></pre>
+<p>The first time you click <em>Run Cell</em> in a lab, VS Code asks
+which Python to use (it calls it a <em>kernel</em>): choose
+<strong>na446a … .venv</strong>. Not in the list? Click the refresh
+arrow ↻ at its top right.</p>
 <h2 id="if-something-fails">If something fails</h2>
 <ol type="1">
 <li><strong><code>uv</code> is not found:</strong> you did not open a
@@ -116,18 +120,16 @@ B below.</li>
 <p><strong>Setup drop-in:</strong> one online drop-in before the first
 Python session; the date and link will be posted here.</p>
 <h2 id="common-problems-in-class">Common problems in class</h2>
-<p>Collected from the sessions; the first two are by far the most
-common.</p>
-<p><strong>“ipykernel is required” or “No module named
-‘pandas’”.</strong> VS Code is using another Python than the course’s
-<code>.venv</code>. The usual reason: you opened the lab folder
-(<code>s1-lab</code>) on its own, so VS Code cannot see
-<code>.venv</code>. Fix: <em>File → Open Folder…</em>
-<code>na446a-starter</code>, with the lab folder inside it; then
-Ctrl+Shift+P (Cmd+Shift+P on a Mac), <em>Python: Select
-Interpreter</em>, the one with <code>.venv</code>; then <em>Restart</em>
-in the Interactive window. Do not click <em>Install</em> on the
-ipykernel message: it installs into the wrong Python.</p>
+<p>Collected from the sessions; the first two cause most problems.</p>
+<p><strong>“Running cells with ‘Python 3.x’ requires the ipykernel
+package”</strong> (or “No module named ‘pandas’”). VS Code has picked
+another Python than the course’s. Do <strong>not</strong> click
+<em>Install</em>. Click <em>Change Kernel</em> (or the Python name at
+the top right of the Interactive window), then the refresh arrow ↻ at
+the top right of the list, and choose <strong>na446a … .venv</strong>.
+It is often missing from the list until you refresh, because
+<code>.venv</code> was made after VS Code opened. Still not there: you
+have opened the lab folder on its own (next item).</p>
 <p><strong>Always open the course folder.</strong> Put every lab folder
 you download inside <code>na446a-starter</code>, and open
 <code>na446a-starter</code> in VS Code, never a lab folder on its own.
