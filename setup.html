@@ -151,16 +151,17 @@ the line to the terminal at the bottom instead, and ▷ runs the whole
 file there too. Both work; the output is just at the bottom.</p>
 <p><strong>Looking at the data, like Stata’s
 <code>browse</code>.</strong> Run your cells (so the data exist in the
-Interactive window), click <em>Variables</em> at the top of that window,
-then the table icon next to the data frame. It opens as a new tab (Data
-Wrangler) beside your script, not as a separate window. It does not work
-for code run with ▷ or <em>Run Selection/Line</em>: that code runs in
-the terminal.</p>
+Interactive window), click <em>View data</em> at the top of that window
+(or the <em>Jupyter</em> tab at the bottom, then the table icon next to
+the data frame). It opens as a new tab (Data Wrangler) beside your
+script, not as a separate window. It does not work for code run with ▷
+or <em>Run Selection/Line</em>: that code runs in the terminal.</p>
 <p><strong>The Interactive window says “Connecting to …” and nothing
-runs.</strong> Usually two Interactive windows are open at once. Close
-them all, press Ctrl+Shift+P (Cmd+Shift+P on a Mac), choose
-<em>Developer: Reload Window</em>, and run your cells again. Keep one
-Interactive window open at a time.</p>
+runs.</strong> The Python behind it has stopped. Click <em>Restart</em>
+at the top of the Interactive window, choose <em>Restart Kernel</em>,
+and run your cells again. Still stuck: close all Interactive windows,
+Ctrl+Shift+P (Cmd+Shift+P on a Mac), <em>Developer: Reload Window</em>.
+Keep one Interactive window open at a time.</p>
 <p><strong><code>NameError: name 'cars' is not defined</code>.</strong>
 A cell further up has not been run yet. Run the file’s cells from the
 top.</p>
