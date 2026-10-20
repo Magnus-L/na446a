@@ -101,6 +101,36 @@ All good: you are ready for the course.</code></pre>
 which Python to use (it calls it a <em>kernel</em>): choose
 <strong>na446a … .venv</strong>. Not in the list? Click the refresh
 arrow ↻ at its top right.</p>
+<h2 id="working-on-a-lab-how-to-arrange-vs-code">Working on a lab: how
+to arrange VS Code</h2>
+<p>One VS Code window, with the course folder open. The lab and its
+checker are two tabs in it.</p>
+<p><a href="assets/vscode-layout.png"><img
+src="assets/vscode-layout.png"
+alt="VS Code arranged for a lab: Explorer on the left, the lab and the checker as tabs, the Interactive window on the right, the terminal below" /></a></p>
+<p>The rhythm, for every step of a lab:</p>
+<ol type="1">
+<li>Write the step in the lab file.</li>
+<li><em>Run Cell</em> above it, and read the result in the Interactive
+window on the right.</li>
+<li><strong>Save: Cmd+S (Mac) or Ctrl+S (Windows).</strong> The checker
+reads the saved file. A dot ● on the tab means “not saved”, and then the
+checker still sees your old version.</li>
+<li>Click the checker’s tab (for example <code>check_s2.py</code>),
+press ▷, and read the terminal: OK, or NOT YET with a hint.</li>
+<li>Back to the lab’s tab: the next step.</li>
+</ol>
+<p>The checker is optional, but it is the quickest way to know you are
+on track.</p>
+<p><strong>Two-minute video</strong> of the same rhythm, on a made-up
+example (no sound):</p>
+<video controls preload="metadata" width="100%" src="assets/v9-lab-and-checker.mp4">
+</video>
+<p><strong>Try it yourself in five minutes:</strong> <a
+href="practice-lab.zip">practice-lab.zip</a>. Unzip it inside
+<code>na446a-starter</code>, open
+<code>practice-lab/practice_lab.py</code> and follow the rhythm until
+the checker says <code>3 of 3 steps right.</code></p>
 <h2 id="if-something-fails">If something fails</h2>
 <ol type="1">
 <li><strong><code>uv</code> is not found:</strong> you did not open a
@@ -167,6 +197,16 @@ at the top of the Interactive window, choose <em>Restart Kernel</em>,
 and run your cells again. Still stuck: close all Interactive windows,
 Ctrl+Shift+P (Cmd+Shift+P on a Mac), <em>Developer: Reload Window</em>.
 Keep one Interactive window open at a time.</p>
+<p><strong>The checker says NOT YET, although you wrote the
+step.</strong> Save first (Cmd+S / Ctrl+S): the checker reads the saved
+file, and a dot ● on the tab means unsaved changes. Then press ▷ on the
+checker’s tab again. See <a
+href="#working-on-a-lab-how-to-arrange-vs-code">Working on a
+lab</a>.</p>
+<p><strong>Too many windows.</strong> Keep one VS Code window and one
+Interactive window. Open other files as tabs (click them in the
+Explorer), not with File &gt; New Window. Ctrl+` hides or shows the
+terminal.</p>
 <p><strong><code>NameError: name 'cars' is not defined</code>.</strong>
 A cell further up has not been run yet. Run the file’s cells from the
 top.</p>
