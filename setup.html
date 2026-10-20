@@ -112,7 +112,9 @@ alt="VS Code arranged for a lab: Explorer on the left, the lab and the checker a
 <ol type="1">
 <li>Write the step in the lab file.</li>
 <li><em>Run Cell</em> above it, and read the result in the Interactive
-window on the right.</li>
+window on the right. (To run only some lines: select them, right-click,
+<em>Run in Interactive Window</em> › <em>Run Selection/Line in
+Interactive Window</em>.)</li>
 <li><strong>Save: Cmd+S (Mac) or Ctrl+S (Windows).</strong> The checker
 reads the saved file. A dot ● on the tab means “not saved”, and then the
 checker still sees your old version.</li>
@@ -181,9 +183,12 @@ home folder (Step 3), delete <code>.venv</code>, run
 <p><strong>Nothing shows on the right.</strong> The Interactive window
 on the right shows the output of <em>cells</em>: click <em>Run Cell</em>
 above a <code># %%</code> line, or put the cursor in the cell and press
-Shift+Enter. <em>Run Selection/Line</em> from the right-click menu sends
-the line to the terminal at the bottom instead, and ▷ runs the whole
-file there too. Both work; the output is just at the bottom.</p>
+Shift+Enter. To run only some lines on the right: select them,
+right-click, <em>Run in Interactive Window</em> › <em>Run Selection/Line
+in Interactive Window</em>. <em>Run Python</em> › <em>Run Selection/Line
+in Python Terminal</em> sends them to the terminal at the bottom
+instead, and ▷ runs the whole file there too: that works, the output is
+just at the bottom.</p>
 <p><strong>Looking at the data, like Stata’s
 <code>browse</code>.</strong> Run your cells (so the data exist in the
 Interactive window), click <em>View data</em> at the top of that window
