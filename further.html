@@ -94,6 +94,22 @@ uses in its own papers. In the VS Code terminal of your course folder,
 type <code>uv add pyfixest</code> once (F1’s optional appendix also uses
 <code>uv add linearmodels</code>). These modules use the same tools and
 conventions as the lab’s published replication packages.</p>
+<h2 id="a-whole-project-start-to-finish-stata-and-python">A whole
+project, start to finish (Stata and Python)</h2>
+<p>A small but complete empirical project, written twice, once in Stata
+and once in Python: how much more do men earn for each extra year of
+schooling (a Mincer wage equation on a panel of 545 young American men,
+1980–87). Each version goes from the raw data file to the tables and the
+figure of a short report, one step per file (import, clean, describe,
+estimate, figures), run in order by one master file. Both give the same
+numbers, and a small script checks that they do. Use it as the model for
+your thesis: copy the version you prefer and replace the question and
+the data; <code>START_YOUR_THESIS.md</code> in the zip says how.</p>
+<p><a href="mini-project.zip">mini-project.zip</a>. Unzip it anywhere
+(inside your course folder is easiest for the Python version) and start
+with <code>README.md</code>. Needs Stata 18 or newer for the Stata
+version; the Python version installs its own packages with
+<code>uv run run_all.py</code>.</p>
 <p><strong>Coming later: causal machine learning.</strong> A module on
 methods that estimate how the effect of a programme differs across
 people.</p>
