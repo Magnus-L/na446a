@@ -146,11 +146,8 @@ subject <em>NA446A setup</em>, and paste three things: what you did,
 what you expected, and <strong>all</strong> the output from
 <code>check_setup.py</code>. A screenshot of the error helps too.</li>
 <li><strong>Your laptop will not cooperate</strong> (work laptop without
-admin rights, very old machine): come to the setup drop-in, and see Plan
-B below.</li>
+admin rights, very old machine): email me, and see Plan B below.</li>
 </ol>
-<p><strong>Setup drop-in:</strong> one online drop-in before the first
-Python session; the date and link will be posted here.</p>
 <h2 id="common-problems-in-class">Common problems in class</h2>
 <p>Collected from the sessions; the first two cause most problems.</p>
 <p><strong>“Running cells with ‘Python 3.x’ requires the ipykernel
@@ -212,6 +209,11 @@ lab</a>.</p>
 Interactive window. Open other files as tabs (click them in the
 Explorer), not with File &gt; New Window. Ctrl+` hides or shows the
 terminal.</p>
+<p><strong><code>uv run check_s3.py</code>: “No such file or
+directory”.</strong> The terminal starts in <code>na446a-starter</code>,
+not in the lab folder. Type <code>cd s3_lab</code> (or
+<code>cd s4-lab</code>, the lab’s folder name) once, then the command
+again. Or open the file and press ▷: that works from any folder.</p>
 <p><strong><code>NameError: name 'cars' is not defined</code>.</strong>
 A cell further up has not been run yet. Run the file’s cells from the
 top.</p>

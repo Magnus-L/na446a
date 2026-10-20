@@ -45,12 +45,19 @@ first; use the <a href="ai.html">tutor prompt</a> if you are stuck.</p>
 <code>pair_NN</code> in it, and <code>clean_registers_flawed.py</code>
 already run on your data (lab Step 8), so that
 <code>pair_NN/data/processed/flawed_py/</code> holds its 20 output
-files. Open <code>s3_lab</code> in VS Code and work in
-<code>bug_hunt_s3.py</code>, one cell at a time. Set <code>PAIR</code>
-in its CHANGE HERE block, and <strong>use the names given in each
-TODO</strong>: the self-check looks for them.</p>
+files. Open <code>na446a-starter</code> in VS Code (the course folder,
+not <code>s3_lab</code> on its own) and work in
+<code>s3_lab/bug_hunt_s3.py</code>, one cell at a time. Set
+<code>PAIR</code> in its CHANGE HERE block, and <strong>use the names
+given in each TODO</strong>: the self-check looks for them.</p>
+<p>Open <code>check_exercise_s3.py</code> and press ▷ (Run Python File),
+or type in the terminal:</p>
 <div class="sourceCode" id="cb1"><pre
-class="sourceCode bash"><code class="sourceCode bash"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="ex">uv</span> run check_exercise_s3.py</span></code></pre></div>
+class="sourceCode bash"><code class="sourceCode bash"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="bu">cd</span> s3_lab</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="ex">uv</span> run check_exercise_s3.py</span></code></pre></div>
+<p>(<code>cd s3_lab</code> once per terminal: the terminal starts in
+<code>na446a-starter</code>.) Save your script first: the self-check
+reads the saved file.</p>
 <p>It says which tasks are right and gives a hint for the others. When
 all is right, the last line reads <code>6 of 6 tasks right.</code> The
 right answers differ from pair to pair and are stored as fingerprints,

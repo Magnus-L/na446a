@@ -28,118 +28,202 @@
 </header>
 <main class="wrap">
 <h1>Sample exam, Python part</h1>
-<p class="subtitle">Ten questions in the format of the real exam. Answer
-without AI and without running code, then check.</p>
-<p>Work on paper, as in the exam hall: read the code and predict. Give
-yourself 15 minutes. Two kinds of question, as in WISEflow: <strong>one
-correct answer</strong>, or <strong>tick every true statement</strong>
-(the question says so). The real exam has more questions and also covers
-Part I.</p>
+<p class="subtitle">Twenty questions in the format of the real exam.
+Answer without AI and without running code, then check.</p>
+<p>Work without a computer, as in the exam hall: read the code and
+predict. Give yourself 45 minutes. Every question has <strong>one
+correct answer</strong>; a wrong answer costs nothing, so answer them
+all. The real exam is in WISEflow and also covers Part I (MATLAB).</p>
 <p><strong>1.</strong> Why does the course use paths like
 <code>ROOT / "data" / "raw"</code> instead of
 <code>C:/Users/anna/Desktop/project/data/raw</code>?</p>
-<p>A. It makes the code run faster B. The project then runs on any
-computer where the folder is copied C. Windows cannot read long paths D.
-pandas only accepts relative paths</p>
-<p><strong>2.</strong> Project structure. Tick every true statement
-about this code, placed in <code>scripts/01_load.py</code>.</p>
-<div class="sourceCode" id="cb1"><pre
-class="sourceCode python"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> pathlib <span class="im">import</span> Path</span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>ROOT <span class="op">=</span> Path(<span class="va">__file__</span>).resolve().parents[<span class="dv">1</span>]</span>
-<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>RAW <span class="op">=</span> ROOT <span class="op">/</span> <span class="st">&quot;data&quot;</span> <span class="op">/</span> <span class="st">&quot;raw&quot;</span></span>
-<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>OUT <span class="op">=</span> ROOT <span class="op">/</span> <span class="st">&quot;output&quot;</span></span>
-<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>OUT.mkdir(parents<span class="op">=</span><span class="va">True</span>, exist_ok<span class="op">=</span><span class="va">True</span>)</span></code></pre></div>
-<p>A. mkdir(…, exist_ok=True) creates the folder if it is missing and
-does not fail if it exists B. ROOT is the project folder, one level
-above scripts/ C. Files in data/raw/ may be edited in place when a value
-is wrong D. output/ is meant for tables, figures and logs</p>
+<p>A. It makes the code run faster B. Windows cannot read long paths C.
+The project then runs on any computer where the folder is copied D.
+pandas only accepts paths that start with the project folder’s name on
+every computer</p>
+<p><strong>2.</strong> In Bastani et al. (2025), which design avoided
+most of the harm to learning?</p>
+<p>A. An AI tutor that gave teacher-designed hints, not answers B. A
+plain chatbot interface like standard ChatGPT C. Letting students use
+the AI in the exam as well D. Giving students more practice problems to
+solve with the plain AI before the exam</p>
 <p><strong>3.</strong> What does the last line print?</p>
+<div class="sourceCode" id="cb1"><pre
+class="sourceCode python"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>a <span class="op">=</span> <span class="st">&quot;20&quot;</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>b <span class="op">=</span> <span class="st">&quot;24&quot;</span></span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(a <span class="op">+</span> b)</span></code></pre></div>
+<p>A. An error B. 44 C. 20 24 D. 2024</p>
+<p><strong>4.</strong> What does the last line print?</p>
 <div class="sourceCode" id="cb2"><pre
-class="sourceCode python"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>a <span class="op">=</span> <span class="st">&quot;20&quot;</span></span>
-<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>b <span class="op">=</span> <span class="st">&quot;24&quot;</span></span>
-<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(a <span class="op">+</span> b)</span></code></pre></div>
-<p>A. 44 B. An error C. 20 24 D. 2024</p>
-<p><strong>4.</strong> What is the first value of <code>top</code>?</p>
+class="sourceCode python"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>x <span class="op">=</span> [<span class="dv">3</span>, <span class="dv">1</span>]</span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>x.append(<span class="dv">2</span>)</span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(x[<span class="op">-</span><span class="dv">1</span>] <span class="op">+</span> <span class="bu">len</span>(x))</span></code></pre></div>
+<p>A. 3 B. 5 C. 6 D. 4</p>
+<p><strong>5.</strong> What does the last line print?</p>
 <div class="sourceCode" id="cb3"><pre
-class="sourceCode python"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
-<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>df <span class="op">=</span> pd.DataFrame({<span class="st">&quot;firm&quot;</span>: [<span class="st">&quot;A&quot;</span>, <span class="st">&quot;B&quot;</span>, <span class="st">&quot;C&quot;</span>], <span class="st">&quot;sales&quot;</span>: [<span class="dv">120</span>, <span class="dv">300</span>, <span class="dv">90</span>]})</span>
-<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>top <span class="op">=</span> df.sort_values(<span class="st">&quot;sales&quot;</span>, ascending<span class="op">=</span><span class="va">False</span>)[<span class="st">&quot;firm&quot;</span>]</span></code></pre></div>
-<p>A. 300 B. B C. A D. C</p>
-<p><strong>5.</strong> How many rows does <code>df</code> have after the
-last line?</p>
+class="sourceCode python"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>years <span class="op">=</span> [<span class="dv">2019</span>, <span class="dv">2020</span>, <span class="dv">2021</span>, <span class="dv">2022</span>, <span class="dv">2023</span>]</span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(years[<span class="dv">1</span>:<span class="dv">3</span>])</span></code></pre></div>
+<p>A. [2020, 2021] B. [2021, 2022] C. [2020, 2021, 2022] D. [2019, 2020,
+2021]</p>
+<p><strong>6.</strong> What is the first value of <code>top</code>?</p>
 <div class="sourceCode" id="cb4"><pre
 class="sourceCode python"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
-<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>df <span class="op">=</span> pd.DataFrame({<span class="st">&quot;region&quot;</span>: [<span class="st">&quot;N&quot;</span>, <span class="st">&quot;N&quot;</span>, <span class="st">&quot;S&quot;</span>], <span class="st">&quot;wage&quot;</span>: [<span class="dv">100</span>, <span class="dv">200</span>, <span class="dv">90</span>]})</span>
-<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>df[<span class="st">&quot;mean_wage&quot;</span>] <span class="op">=</span> df.groupby(<span class="st">&quot;region&quot;</span>)[<span class="st">&quot;wage&quot;</span>].transform(<span class="st">&quot;mean&quot;</span>)</span></code></pre></div>
-<p>A. 3 B. 6 C. 2 D. 1</p>
-<p><strong>6.</strong> According to Gentzkow and Shapiro (2014), what
-must be true of a table’s key?</p>
-<p>A. It is the same in every table of the project B. It is a number,
-never text C. It is the first column of the table D. It uniquely
-identifies each row and is never missing</p>
-<p><strong>7.</strong> Merging. Tick every true statement.</p>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>df <span class="op">=</span> pd.DataFrame({<span class="st">&quot;firm&quot;</span>: [<span class="st">&quot;A&quot;</span>, <span class="st">&quot;B&quot;</span>, <span class="st">&quot;C&quot;</span>], <span class="st">&quot;sales&quot;</span>: [<span class="dv">120</span>, <span class="dv">300</span>, <span class="dv">90</span>]})</span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>top <span class="op">=</span> df.sort_values(<span class="st">&quot;sales&quot;</span>, ascending<span class="op">=</span><span class="va">False</span>)[<span class="st">&quot;firm&quot;</span>]</span></code></pre></div>
+<p>A. 300 B. B C. A D. C</p>
+<p><strong>7.</strong> What is the last value of
+<code>df["wage_k"]</code>?</p>
 <div class="sourceCode" id="cb5"><pre
-class="sourceCode python"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>m <span class="op">=</span> persons.merge(firms, on<span class="op">=</span><span class="st">&quot;firm&quot;</span>, how<span class="op">=</span><span class="st">&quot;left&quot;</span>,</span>
-<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>                  validate<span class="op">=</span><span class="st">&quot;m:1&quot;</span>, indicator<span class="op">=</span><span class="va">True</span>)</span></code></pre></div>
-<p>A. Every row of persons is kept, matched or not B. The column _merge
-tells, row by row, whether a match was found C. The merge stops with an
-error if a firm appears twice in firms D. Like Stata’s merge, pandas
-keeps unmatched rows from both tables by default</p>
-<p><strong>8.</strong> How many rows does <code>long</code> have?</p>
+class="sourceCode python"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>df <span class="op">=</span> pd.DataFrame({<span class="st">&quot;wage&quot;</span>: [<span class="dv">25000</span>, <span class="dv">31000</span>, <span class="dv">40000</span>]})</span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>df[<span class="st">&quot;wage_k&quot;</span>] <span class="op">=</span> df[<span class="st">&quot;wage&quot;</span>] <span class="op">/</span> <span class="dv">1000</span></span></code></pre></div>
+<p>A. 4.0 B. 40000 C. 40.0 D. An error</p>
+<p><strong>8.</strong> What does the last line print?</p>
 <div class="sourceCode" id="cb6"><pre
 class="sourceCode python"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
-<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>wide <span class="op">=</span> pd.DataFrame({<span class="st">&quot;pid&quot;</span>: [<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>], <span class="st">&quot;wage2023&quot;</span>: [<span class="dv">100</span>, <span class="dv">110</span>, <span class="dv">90</span>], <span class="st">&quot;wage2024&quot;</span>: [<span class="dv">105</span>, <span class="dv">112</span>, <span class="dv">95</span>]})</span>
-<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a><span class="bu">long</span> <span class="op">=</span> wide.melt(id_vars<span class="op">=</span><span class="st">&quot;pid&quot;</span>, var_name<span class="op">=</span><span class="st">&quot;year&quot;</span>, value_name<span class="op">=</span><span class="st">&quot;wage&quot;</span>)</span></code></pre></div>
-<p>A. 3 B. 9 C. 6 D. 2</p>
-<p><strong>9.</strong> Why does this merge find no matches?</p>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>origin <span class="op">=</span> pd.Series([<span class="dv">1</span>, <span class="dv">3</span>, <span class="dv">2</span>])</span>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a>names <span class="op">=</span> {<span class="dv">1</span>: <span class="st">&quot;US&quot;</span>, <span class="dv">2</span>: <span class="st">&quot;Europe&quot;</span>, <span class="dv">3</span>: <span class="st">&quot;Japan&quot;</span>}</span>
+<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a>region <span class="op">=</span> origin.<span class="bu">map</span>(names)</span>
+<span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(region.iloc[<span class="dv">1</span>])</span></code></pre></div>
+<p>A. Europe B. 3 C. US D. Japan</p>
+<p><strong>9.</strong> A CSV column holds values like 12, 15 and “****”
+(a missing-value code). What type does pandas give the column when it
+reads the file?</p>
 <div class="sourceCode" id="cb7"><pre
-class="sourceCode python"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
-<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>a <span class="op">=</span> pd.DataFrame({<span class="st">&quot;pid&quot;</span>: [<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>]})</span>
-<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a>b <span class="op">=</span> pd.DataFrame({<span class="st">&quot;pid&quot;</span>: [<span class="st">&quot;1&quot;</span>, <span class="st">&quot;2&quot;</span>, <span class="st">&quot;3&quot;</span>], <span class="st">&quot;wage&quot;</span>: [<span class="dv">100</span>, <span class="dv">110</span>, <span class="dv">90</span>]})</span>
-<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a><span class="cf">try</span>:</span>
-<span id="cb7-5"><a href="#cb7-5" aria-hidden="true" tabindex="-1"></a>    m <span class="op">=</span> a.merge(b, on<span class="op">=</span><span class="st">&quot;pid&quot;</span>, how<span class="op">=</span><span class="st">&quot;left&quot;</span>)</span>
-<span id="cb7-6"><a href="#cb7-6" aria-hidden="true" tabindex="-1"></a>    res <span class="op">=</span> <span class="st">&quot;ran&quot;</span></span>
-<span id="cb7-7"><a href="#cb7-7" aria-hidden="true" tabindex="-1"></a><span class="cf">except</span> <span class="pp">ValueError</span>:</span>
-<span id="cb7-8"><a href="#cb7-8" aria-hidden="true" tabindex="-1"></a>    res <span class="op">=</span> <span class="st">&quot;pandas refuses: the key is a number in one table and text in the other&quot;</span></span></code></pre></div>
-<p>A. ran B. b has too few rows C. The keys have different names D.
-pandas refuses: the key is a number in one table and text in the
-other</p>
-<p><strong>10.</strong> What does the last line print?</p>
+class="sourceCode python"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> io</span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
+<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a>df <span class="op">=</span> pd.read_csv(io.StringIO(<span class="st">&quot;id,income</span><span class="ch">\n</span><span class="st">1,12</span><span class="ch">\n</span><span class="st">2,15</span><span class="ch">\n</span><span class="st">3,****</span><span class="ch">\n</span><span class="st">&quot;</span>))</span>
+<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a>kind <span class="op">=</span> <span class="st">&quot;text&quot;</span> <span class="cf">if</span> df[<span class="st">&quot;income&quot;</span>].dtype.kind <span class="kw">in</span> <span class="st">&quot;OUT&quot;</span> <span class="cf">else</span> <span class="st">&quot;number&quot;</span></span></code></pre></div>
+<p>A. date B. category C. number D. text</p>
+<p><strong>10.</strong> How many rows does <code>df</code> have after
+the last line?</p>
 <div class="sourceCode" id="cb8"><pre
-class="sourceCode python"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> clean(x):</span>
-<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> x.strip().lower()</span>
-<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a>names <span class="op">=</span> [<span class="st">&quot; Lund&quot;</span>, <span class="st">&quot;UMEÅ &quot;</span>, <span class="st">&quot;Malmö&quot;</span>]</span>
-<span id="cb8-5"><a href="#cb8-5" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>([clean(n) <span class="cf">for</span> n <span class="kw">in</span> names])</span></code></pre></div>
-<p>A. [‘lund’, ‘umeå’, ‘malmö’] B. An error C. [‘Lund’, ‘Umeå’, ‘Malmö’]
-D. [’ Lund’, ‘UMEÅ’, ‘Malmö’]</p>
+class="sourceCode python"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a>df <span class="op">=</span> pd.DataFrame({<span class="st">&quot;region&quot;</span>: [<span class="st">&quot;N&quot;</span>, <span class="st">&quot;N&quot;</span>, <span class="st">&quot;S&quot;</span>], <span class="st">&quot;wage&quot;</span>: [<span class="dv">100</span>, <span class="dv">200</span>, <span class="dv">90</span>]})</span>
+<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a>df[<span class="st">&quot;mean_wage&quot;</span>] <span class="op">=</span> df.groupby(<span class="st">&quot;region&quot;</span>)[<span class="st">&quot;wage&quot;</span>].transform(<span class="st">&quot;mean&quot;</span>)</span></code></pre></div>
+<p>A. 2 B. 6 C. 3 D. 1</p>
+<p><strong>11.</strong> A panel has one row per person and year. What
+does <code>df.groupby("pid")["year"].nunique().max()</code> tell
+you?</p>
+<p>A. The largest number of years any one person is observed B. The
+number of persons who are observed in every year of the panel C. The
+number of rows D. The last year in the data</p>
+<p><strong>12.</strong> According to Gentzkow and Shapiro (2014), what
+must be true of a table’s key?</p>
+<p>A. It is a number, never text B. It uniquely identifies each row and
+is never missing C. It is the first column of the table D. It is the
+same variable, with the same name, in every table of the project</p>
+<p><strong>13.</strong> How many rows does <code>long</code> have?</p>
+<div class="sourceCode" id="cb9"><pre
+class="sourceCode python"><code class="sourceCode python"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
+<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a>wide <span class="op">=</span> pd.DataFrame({<span class="st">&quot;pid&quot;</span>: [<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>], <span class="st">&quot;wage2023&quot;</span>: [<span class="dv">100</span>, <span class="dv">110</span>, <span class="dv">90</span>], <span class="st">&quot;wage2024&quot;</span>: [<span class="dv">105</span>, <span class="dv">112</span>, <span class="dv">95</span>]})</span>
+<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a><span class="bu">long</span> <span class="op">=</span> wide.melt(id_vars<span class="op">=</span><span class="st">&quot;pid&quot;</span>, var_name<span class="op">=</span><span class="st">&quot;year&quot;</span>, value_name<span class="op">=</span><span class="st">&quot;wage&quot;</span>)</span></code></pre></div>
+<p>A. 3 B. 2 C. 9 D. 6</p>
+<p><strong>14.</strong> What does the last line print?</p>
+<div class="sourceCode" id="cb10"><pre
+class="sourceCode python"><code class="sourceCode python"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
+<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a>persons <span class="op">=</span> pd.DataFrame({<span class="st">&quot;id&quot;</span>: [<span class="st">&quot;P1&quot;</span>, <span class="st">&quot;P1&quot;</span>, <span class="st">&quot;P2&quot;</span>, <span class="st">&quot;P2&quot;</span>, <span class="st">&quot;P3&quot;</span>],</span>
+<span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a>                        <span class="st">&quot;country&quot;</span>: [<span class="st">&quot;SE&quot;</span>, <span class="st">&quot;SE&quot;</span>, <span class="st">&quot;SE&quot;</span>, <span class="st">&quot;NO&quot;</span>, <span class="st">&quot;SE&quot;</span>]})</span>
+<span id="cb10-4"><a href="#cb10-4" aria-hidden="true" tabindex="-1"></a>a <span class="op">=</span> persons.duplicated(<span class="st">&quot;id&quot;</span>).<span class="bu">sum</span>()</span>
+<span id="cb10-5"><a href="#cb10-5" aria-hidden="true" tabindex="-1"></a>b <span class="op">=</span> persons.duplicated().<span class="bu">sum</span>()</span>
+<span id="cb10-6"><a href="#cb10-6" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(a, b)</span></code></pre></div>
+<p>A. 4 2 B. 2 2 C. 2 1 D. 1 2</p>
+<p><strong>15.</strong> Why does this merge find no matches?</p>
+<div class="sourceCode" id="cb11"><pre
+class="sourceCode python"><code class="sourceCode python"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
+<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a>a <span class="op">=</span> pd.DataFrame({<span class="st">&quot;pid&quot;</span>: [<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>]})</span>
+<span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a>b <span class="op">=</span> pd.DataFrame({<span class="st">&quot;pid&quot;</span>: [<span class="st">&quot;1&quot;</span>, <span class="st">&quot;2&quot;</span>, <span class="st">&quot;3&quot;</span>], <span class="st">&quot;wage&quot;</span>: [<span class="dv">100</span>, <span class="dv">110</span>, <span class="dv">90</span>]})</span>
+<span id="cb11-4"><a href="#cb11-4" aria-hidden="true" tabindex="-1"></a><span class="cf">try</span>:</span>
+<span id="cb11-5"><a href="#cb11-5" aria-hidden="true" tabindex="-1"></a>    m <span class="op">=</span> a.merge(b, on<span class="op">=</span><span class="st">&quot;pid&quot;</span>, how<span class="op">=</span><span class="st">&quot;left&quot;</span>)</span>
+<span id="cb11-6"><a href="#cb11-6" aria-hidden="true" tabindex="-1"></a>    res <span class="op">=</span> <span class="st">&quot;ran&quot;</span></span>
+<span id="cb11-7"><a href="#cb11-7" aria-hidden="true" tabindex="-1"></a><span class="cf">except</span> <span class="pp">ValueError</span>:</span>
+<span id="cb11-8"><a href="#cb11-8" aria-hidden="true" tabindex="-1"></a>    res <span class="op">=</span> <span class="st">&quot;pandas refuses: the key is a number in one table and text in the other&quot;</span></span></code></pre></div>
+<p>A. ran B. pandas refuses: the key is a number in one table and text
+in the other C. The keys have different names in the two tables, so
+pandas cannot match them D. b has too few rows</p>
+<p><strong>16.</strong> What is the test that a project is
+reproducible?</p>
+<p>A. Delete all outputs, run the run-all script once, and get the same
+tables and figures B. Open every output file and check by eye that each
+table and each figure looks as it did before C. Ask a classmate to read
+the code D. Save the data in two formats</p>
+<p><strong>17.</strong> What does the last line print?</p>
+<div class="sourceCode" id="cb12"><pre
+class="sourceCode python"><code class="sourceCode python"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> clean(x):</span>
+<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> x.strip().lower()</span>
+<span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-4"><a href="#cb12-4" aria-hidden="true" tabindex="-1"></a>names <span class="op">=</span> [<span class="st">&quot; Lund&quot;</span>, <span class="st">&quot;UMEÅ &quot;</span>, <span class="st">&quot;Malmö&quot;</span>]</span>
+<span id="cb12-5"><a href="#cb12-5" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>([clean(n) <span class="cf">for</span> n <span class="kw">in</span> names])</span></code></pre></div>
+<p>A. [‘lund’, ‘umeå’, ‘malmö’] B. [’ Lund’, ‘UMEÅ’, ‘Malmö’] C. An
+error D. [‘Lund’, ‘Umeå’, ‘Malmö’]</p>
+<p><strong>18.</strong> Why does the script call
+<code>r.raise_for_status()</code> right after
+<code>r = requests.get(URL, timeout=30)</code>?</p>
+<p>A. To make the download from the server faster B. To stop with an
+error if the server did not send the data C. To turn the server’s answer
+into a DataFrame with one row per month D. To save the server’s answer
+in data/raw/</p>
+<p><strong>19.</strong> What does the last line print?</p>
+<div class="sourceCode" id="cb13"><pre
+class="sourceCode python"><code class="sourceCode python"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> double(x):</span>
+<span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a>    y <span class="op">=</span> <span class="dv">2</span> <span class="op">*</span> x</span>
+<span id="cb13-3"><a href="#cb13-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb13-4"><a href="#cb13-4" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(double(<span class="dv">4</span>))</span></code></pre></div>
+<p>A. 4 B. 8 C. None D. An error</p>
+<p><strong>20.</strong> Quarterly GDP is 100 in 2023Q1 and 103 in
+2024Q1. Which line gives year-on-year growth in per cent for quarterly
+data?</p>
+<p>A. 100 * gdp.pct_change(1) B. 100 * gdp.diff(4) C. gdp.pct_change(12)
+D. 100 * gdp.pct_change(4)</p>
 <h2 id="answers-and-why">Answers and why</h2>
 <details>
 <summary>
 Show the answers (try first)
 </summary>
 <ol type="1">
-<li><strong>B.</strong> An absolute path works on one computer only; a
+<li><strong>C.</strong> An absolute path works on one computer only; a
 path from the project root travels with the project.</li>
-<li><strong>A, B, D.</strong> Raw data are read-only; corrections are
-made by code that writes to data/processed/.</li>
+<li><strong>A.</strong> GPT Tutor, with prompts that safeguard learning,
+largely removed the drop in exam grades seen with GPT Base.</li>
 <li><strong>D.</strong> + joins strings; convert with int() first if you
 want arithmetic.</li>
+<li><strong>B.</strong> append adds 2 at the end; x[-1] is the last
+element (2) and the list has 3 elements.</li>
+<li><strong>A.</strong> A slice includes the start position and stops
+before the end position: positions 1 and 2.</li>
 <li><strong>B.</strong> ascending=False puts the largest sales first
 (Stata: gsort -sales).</li>
-<li><strong>A.</strong> transform keeps every row and adds the group
+<li><strong>C.</strong> A new column is computed for every row at once
+(Stata: gen wage_k = wage/1000).</li>
+<li><strong>D.</strong> map looks up each code in the dictionary;
+iloc[1] is the second row (counting from 0), code 3.</li>
+<li><strong>D.</strong> One non-numeric entry makes the whole column
+text; replace the code with missing and convert with pd.to_numeric.</li>
+<li><strong>C.</strong> transform keeps every row and adds the group
 mean to each (Stata: bysort region: egen), unlike agg, which
 collapses.</li>
-<li><strong>D.</strong> Their rule A in the Keys chapter: store cleaned
+<li><strong>A.</strong> nunique counts distinct years within each
+person; max gives the longest observed history.</li>
+<li><strong>B.</strong> Their rule A in the Keys chapter: store cleaned
 data in tables with unique, non-missing keys.</li>
-<li><strong>A, B, C.</strong> pandas’ default is how=‘inner’; here
-how=‘left’ is chosen on purpose, and validate guards the key.</li>
-<li><strong>C.</strong> Wide to long gives one row per person and year:
+<li><strong>D.</strong> Wide to long gives one row per person and year:
 3 x 2 = 6 (Stata: reshape long).</li>
-<li><strong>D.</strong> The same id stored as 1 and as “1” is not the
+<li><strong>C.</strong> Two rows repeat an id; only one of them repeats
+every column. P2 is a real conflict (SE or NO), not a copy:
+drop_duplicates() would not remove it.</li>
+<li><strong>B.</strong> The same id stored as 1 and as “1” is not the
 same key; make the types equal (e.g. astype(int)) before merging.</li>
+<li><strong>A.</strong> If every output can be rebuilt from raw data by
+one script, the project is reproducible.</li>
 <li><strong>A.</strong> One function applied to every element: strip
 removes spaces, lower changes the case (Swedish letters included).</li>
+<li><strong>B.</strong> A failed request still returns an answer (an
+error page); raise_for_status turns it into an error instead of letting
+bad data flow on.</li>
+<li><strong>C.</strong> Without return, a function gives back None;
+computing y inside is not enough.</li>
+<li><strong>D.</strong> Year on year compares with the same quarter a
+year earlier: four quarters back.</li>
 </ol>
 </details>
 </main>
