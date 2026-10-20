@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Exercise S3 · NA446A Python</title>
+<meta name="description" content="Programming and Data Management, Part II (Python): course site">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Lato:wght@400;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/style.css">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 64 64%22%3E%3Crect width=%2264%22 height=%2264%22 rx=%2212%22 fill=%22%23232b65%22/%3E%3Ctext x=%2232%22 y=%2242%22 font-family=%22sans-serif%22 font-size=%2228%22 font-weight=%22700%22 fill=%22white%22 text-anchor=%22middle%22%3EPy%3C/text%3E%3C/svg%3E">
+</head>
+<body>
+<header class="top">
+  <div class="wrap">
+    <a class="brand" href="index.html"><b>NA446A</b> <span>Python for data you can trust</span></a>
+    <nav>
+      <a href="index.html">Course</a>
+      <a href="setup.html">Setup</a>
+      <a href="sessions.html">Sessions</a>
+      <a href="readings.html">Readings</a>
+      <a href="data.html">Data</a>
+      <a href="ai.html">AI in this course</a>
+      <a href="exam.html">Exam</a>
+      <a href="further.html">Further topics</a>
+    </nav>
+  </div>
+</header>
+<main class="wrap">
+<h1>Exercise after Session 3: the full bug hunt</h1>
+<p class="subtitle">Formative, no hand-in. About 2 hours. Solution on
+the site three days after the session.</p>
+<h2 id="why-this-exercise">Why this exercise</h2>
+<p>In the lab you found the bugs in
+<code>clean_registers_flawed.py</code> that show without reading its
+logic. Here you hunt the rest: where the documentation is wrong, where
+the logic is wrong, and where the rules of the data or the language make
+a line do something its author did not mean. Every answer is a number or
+a name from <em>your</em> pair’s data, so an answer copied from another
+pair, or from a chatbot, does not fit. The exam asks you to read code
+like this and say what it does, without AI. Try each task yourself
+first; use the <a href="ai.html">tutor prompt</a> if you are stuck.</p>
+<h2 id="what-you-need">What you need</h2>
+<p>The Session 3 lab folder <code>s3_lab</code> with your pair’s folder
+<code>pair_NN</code> in it, and <code>clean_registers_flawed.py</code>
+already run on your data (lab Step 8), so that
+<code>pair_NN/data/processed/flawed_py/</code> holds its 20 output
+files. Open <code>s3_lab</code> in VS Code and work in
+<code>bug_hunt_s3.py</code>, one cell at a time. Set <code>PAIR</code>
+in its CHANGE HERE block, and <strong>use the names given in each
+TODO</strong>: the self-check looks for them.</p>
+<div class="sourceCode" id="cb1"><pre
+class="sourceCode bash"><code class="sourceCode bash"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="ex">uv</span> run check_exercise_s3.py</span></code></pre></div>
+<p>It says which tasks are right and gives a hint for the others. When
+all is right, the last line reads <code>6 of 6 tasks right.</code> The
+right answers differ from pair to pair and are stored as fingerprints,
+so the check cannot give them away.</p>
+<h2 id="tasks-from-easy-to-hard">Tasks, from easy to hard</h2>
+<table>
+<colgroup>
+<col style="width: 33%" />
+<col style="width: 33%" />
+<col style="width: 33%" />
+</colgroup>
+<thead>
+<tr>
+<th>Task</th>
+<th>What to do</th>
+<th>Time</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1. It runs <em>(easy)</em></td>
+<td>Count the output files the flawed script wrote.</td>
+<td>5 min</td>
+</tr>
+<tr>
+<td>2. Level 1 in numbers <em>(easy)</em></td>
+<td>Rows per person in the grade-9 file; the year labels in the appended
+person panel; the years in the appended firm panel; persons with a
+missing value in the migration file. For each, say which line causes
+it.</td>
+<td>20 min</td>
+</tr>
+<tr>
+<td>3. Trust but verify <em>(medium)</em></td>
+<td>The codebook disagrees with the data in three places. Run checklist
+items 1 (names), 6 (categories) and 8 (IDs and keys) on
+<strong>every</strong> raw file, not only the ones you need, and write
+each disagreement as an erratum: the codebook says, the data say, how
+you found it.</td>
+<td>25 min</td>
+</tr>
+<tr>
+<td>4. Follow the logic <em>(medium)</em></td>
+<td>The youth flag in the municipal register: how many persons does the
+script flag, and how many should it? Which line is wrong, and why?</td>
+<td>20 min</td>
+</tr>
+<tr>
+<td>5. Know the data <em>(hard)</em></td>
+<td>Education in 2021: the share the script leaves missing, and the
+share that is really unknown. What changed in 2021, and how would you
+classify so that the next code vintage cannot break it?</td>
+<td>25 min</td>
+</tr>
+<tr>
+<td>6. Know the language <em>(hard)</em></td>
+<td>The firm block “added in April”: how many rows its key-based
+<code>drop_duplicates</code> removes, how many of those are true copies,
+and the right share of person-months on permanent contracts. Which rows
+should it have kept, and what does <code>fillna(0)</code> do to a coded
+variable?</td>
+<td>25 min</td>
+</tr>
+</tbody>
+</table>
+<h2 id="questions-to-answer-in-your-script-as-comments">Questions to
+answer in your script (as comments)</h2>
+<ol type="1">
+<li>Task 2: which of the four problems would a single
+<code>assert</code> after each step have stopped? Write the
+<code>assert</code>.</li>
+<li>Task 3: for each erratum, three sources can disagree: the codebook,
+the data and the comments in the flawed script. Which do you believe,
+and what would you need to settle it?</li>
+<li>Task 4: the same condition appears in two registers. Does it go
+wrong in the same way in both?</li>
+<li>Task 6: the rows without a person id are real pay from the firm.
+Where do they belong in a person-level file, and where in a firm-level
+file?</li>
+</ol>
+<h2 id="if-you-finish-early-optional-20-min">If you finish early
+(optional, 20 min)</h2>
+<p>Write the smallest set of <code>assert</code> statements that would
+have stopped the flawed script at its first wrong number in each
+register, and say where each one goes. Two of them should catch bugs
+that never raise an error in pandas.</p>
+<h2 id="two-rules-for-this-exercise">Two rules for this exercise</h2>
+<ul>
+<li>Mark any line that came from an AI with the comment
+<code># AI:</code> and make sure you can explain it.</li>
+<li>The register files are synthetic. Real register data never go into a
+chatbot.</li>
+</ul>
+</main>
+<footer class="wrap">
+  <p>Programming and Data Management for Economics and Finance (NA446A), Part II: Python.
+  Örebro University, autumn 2026. Teacher: <a href="https://magnuslodefalk.com">Magnus Lodefalk</a>.</p>
+  <p>Written in plain text and built with pandoc; every code snippet on this site is run before it is published. Updated 2026-10-20.</p>
+</footer>
+<script>
+document.querySelectorAll("pre").forEach(function (pre) {
+  var b = document.createElement("button");
+  b.className = "copy"; b.type = "button"; b.textContent = "Copy";
+  b.addEventListener("click", function () {
+    var txt = pre.querySelector("code") ? pre.querySelector("code").innerText : pre.innerText;
+    navigator.clipboard.writeText(txt).then(function () {
+      b.textContent = "Copied"; setTimeout(function () { b.textContent = "Copy"; }, 1500);
+    });
+  });
+  pre.appendChild(b);
+});
+</script>
+</body>
+</html>

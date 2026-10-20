@@ -77,8 +77,8 @@ a table and a figure.</li>
 href="readings.html">Readings</a>), about 20 minutes. Session 2 is the
 day after session 1, so plan it into the weekend before.</p>
 <p><strong>Slides:</strong> <a href="s2-handout.pdf">handout, questions
-without answers (PDF)</a>. The version with answers is posted after the
-session.</p>
+without answers (PDF)</a>. <a href="s2-slides.pdf">Full slides, with
+answers (PDF)</a>.</p>
 <p><strong>Lab:</strong> <a href="s2-lab.zip">s2-lab.zip</a>. Unzip it
 inside your course folder; it contains its own data
 (<code>auto_messy.csv</code>, <code>titanic.csv</code>). Open
@@ -95,9 +95,40 @@ same lab folder (<code>titanic_intake.py</code>, self-check
 <code>uv run check_exercise_s2.py</code>, all right is
 <code>8 of 8 tasks right.</code>). Formative, no hand-in; the solution
 is posted here three days after the session.</p>
-<h2 id="session-3.-combining-data-tue-27-oct">Session 3. Combining data
-(Tue 27 Oct)</h2>
-<p>Posted before the session.</p>
+<h2 id="s3">Session 3. Combining data (Tue 27 Oct)</h2>
+<p><strong>Goals.</strong> After this session you can:</p>
+<ol type="1">
+<li>merge two tables with key checks (<code>validate=</code>,
+<code>indicator=</code>), and predict the number of rows before you
+run;</li>
+<li>append yearly files and reshape between long and wide;</li>
+<li>build a person-year panel with a lag that is really last year’s
+value.</li>
+</ol>
+<p><strong>Before the session:</strong> read Gentzkow and Shapiro,
+chapter 5, <em>Keys</em> (see <a href="readings.html">Readings</a>).</p>
+<p><strong>Slides:</strong> <a href="s3-handout.pdf">handout, questions
+without answers (PDF)</a>. The version with answers is posted after the
+session.</p>
+<p><strong>Lab:</strong> <a href="s3_lab.zip">s3_lab.zip</a>. Unzip it
+and put the folder <code>s3_lab</code> inside your course folder. In
+class, pick a free number 1–30 on the whiteboard, cross it out, and
+download your pair’s <code>pair_NN.zip</code> from the <a
+href="data.html">Data page</a>; unzip it <em>into</em>
+<code>s3_lab</code>. Late or absent? Use pair 00, which is already in
+the folder. Then open <code>s3_lab.py</code>, set <code>PAIR</code> in
+the CHANGE HERE block and run the cells one by one. Self-check:
+<code>uv run check_s3.py</code> (all right is
+<code>8 of 8 steps right.</code>). The second half is a bug race on a
+cleaning script written the way real register code often is. All data
+are synthetic; no real person or firm is in them.</p>
+<p><strong>Exercise after the session:</strong> <a
+href="exercise-s3.html">the full bug hunt</a>, about 2 hours, in the
+same lab folder (<code>bug_hunt_s3.py</code>, self-check
+<code>uv run check_exercise_s3.py</code>, all right is
+<code>6 of 6 tasks right.</code>). The answers differ from pair to pair.
+Formative, no hand-in; the solution is posted here three days after the
+session.</p>
 <h2 id="session-4.-getting-data-and-scaling-up-thu-29-oct">Session 4.
 Getting data and scaling up (Thu 29 Oct)</h2>
 <p>Posted before the session.</p>
