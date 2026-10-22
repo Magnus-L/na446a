@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Exercise S4 · NA446A Python</title>
+<meta name="description" content="Programming and Data Management, Part II (Python): course site">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Lato:wght@400;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/style.css">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 64 64%22%3E%3Crect width=%2264%22 height=%2264%22 rx=%2212%22 fill=%22%23232b65%22/%3E%3Ctext x=%2232%22 y=%2242%22 font-family=%22sans-serif%22 font-size=%2228%22 font-weight=%22700%22 fill=%22white%22 text-anchor=%22middle%22%3EPy%3C/text%3E%3C/svg%3E">
+</head>
+<body>
+<header class="top">
+  <div class="wrap">
+    <a class="brand" href="index.html"><b>NA446A</b> <span>Python for data you can trust</span></a>
+    <nav>
+      <a href="index.html">Course</a>
+      <a href="setup.html">Setup</a>
+      <a href="sessions.html">Sessions</a>
+      <a href="readings.html">Readings</a>
+      <a href="data.html">Data</a>
+      <a href="ai.html">AI in this course</a>
+      <a href="exam.html">Exam</a>
+      <a href="further.html">Further topics</a>
+    </nav>
+  </div>
+</header>
+<main class="wrap">
+<h1>Exercise after Session 4: a World Bank mini-pipeline</h1>
+<p class="subtitle">Formative, no hand-in. About 90 minutes. Solution on
+the site three days after the session.</p>
+<h2 id="why-this-exercise">Why this exercise</h2>
+<p>In the lab you built a pipeline from Statistics Sweden’s API to a
+regression table. Here you use a second open API, the World Bank’s,
+which answers in <strong>pages</strong>. A script that reads only the
+first page runs without an error and returns a fraction of the data. The
+exam asks you to predict what code like this does, without AI. So try
+each task yourself first; use the <a href="ai.html">tutor prompt</a> if
+you are stuck, not a chatbot that writes it for you.</p>
+<h2 id="what-you-need">What you need</h2>
+<p>The Session 4 lab folder, inside your course folder
+(<code>na446a-starter</code>). It holds <code>wb_exercise.py</code> (the
+script you fill in), <code>check_exercise_s4.py</code> (the self-check)
+and a saved copy of the World Bank’s answers in
+<code>data/raw/saved/wb/</code>. Open <code>na446a-starter</code> in VS
+Code (the course folder, not the lab folder on its own).</p>
+<p>Work in <code>wb_exercise.py</code>, one cell at a time, and
+<strong>keep the names given in each TODO</strong>
+(<code>n_first_page</code>, <code>get_all_pages</code>,
+<code>read_wb</code>, <code>gdp</code>, <code>panel</code>,
+<code>res</code>): the self-check looks for them. Run the self-check
+whenever you like:</p>
+<p>Open <code>check_exercise_s4.py</code> and press ▷ (Run Python File),
+or type in the terminal:</p>
+<div class="sourceCode" id="cb1"><pre
+class="sourceCode bash"><code class="sourceCode bash"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="bu">cd</span> s4-lab</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="ex">uv</span> run check_exercise_s4.py</span></code></pre></div>
+<p>(<code>cd s4-lab</code> once per terminal: the terminal starts in
+<code>na446a-starter</code>.) Save your script first: the self-check
+reads the saved file.</p>
+<p>It tells you which tasks are right and gives a hint for the others.
+When all is right, the last line reads <code>6 of 6 tasks right.</code>
+It takes 5–15 seconds online and never changes your script.</p>
+<p><strong>No network, or the API is down?</strong> Set
+<code>USE_SAVED = True</code> in the CHANGE HERE block. Everything then
+runs on the saved copy (fetched 29 Sep 2026), and the self-check works
+the same way.</p>
+<h2 id="tasks-from-easy-to-hard">Tasks, from easy to hard</h2>
+<table>
+<colgroup>
+<col style="width: 33%" />
+<col style="width: 33%" />
+<col style="width: 33%" />
+</colgroup>
+<thead>
+<tr>
+<th>Task</th>
+<th>What to do</th>
+<th>Time</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1. One page <em>(easy)</em></td>
+<td>Predict, then run: how many rows exist for five countries over
+1960–2025, and how many does the first page hold? Store
+<code>n_first_page</code> and <code>n_total</code>; print the country of
+the first and last row.</td>
+<td>10 min</td>
+</tr>
+<tr>
+<td>2. Every page <em>(medium)</em></td>
+<td>Complete <code>get_all_pages(name)</code>: page 1, then a
+<code>for</code> loop over the other pages, then an <code>assert</code>
+that the rows add up to <code>meta["total"]</code>. Run it for both
+indicators.</td>
+<td>20 min</td>
+</tr>
+<tr>
+<td>3. One function, many files <em>(medium)</em></td>
+<td>Complete <code>read_wb(path)</code> (one saved page to a DataFrame
+with <code>country</code>, <code>year</code> as an integer,
+<code>value</code> as a number); loop over the saved GDP pages and stack
+them into <code>gdp</code>; assert that no country-year appears
+twice.</td>
+<td>15 min</td>
+</tr>
+<tr>
+<td>4. One panel <em>(medium)</em></td>
+<td>Wrap Task 3’s loop in <code>read_indicator(name)</code>; merge GDP
+and unemployment into <code>panel</code> on country and year
+(<code>how="outer"</code>, <code>validate="1:1"</code>,
+<code>indicator=True</code>).</td>
+<td>15 min</td>
+</tr>
+<tr>
+<td>5. Growth <em>(hard)</em></td>
+<td>Sort by country and year; <code>panel["growth"]</code> = the yearly
+percentage change of GDP per person <strong>within</strong> each
+country.</td>
+<td>15 min</td>
+</tr>
+<tr>
+<td>6. DuckDB and a table <em>(hard)</em></td>
+<td>Save <code>panel</code> to
+<code>data/processed/wb_panel.parquet</code>; with DuckDB, query that
+file for mean growth and mean unemployment per country over 2010–2019,
+fastest growth first; save the result to
+<code>output/tables/wb_nordic_2010s.csv</code>.</td>
+<td>15 min</td>
+</tr>
+</tbody>
+</table>
+<h2 id="questions-to-answer-in-your-script-as-comments">Questions to
+answer in your script (as comments)</h2>
+<ol type="1">
+<li>Task 1: which countries are on page 1, and why is a script that
+stops there dangerous, even though it runs without an error?</li>
+<li>Task 4: how many unemployment values are missing, and why exactly
+that many?</li>
+<li>Task 5: how many growth values are missing, and why? What would
+<code>pct_change()</code> give Finland’s first year if you forgot the
+<code>groupby</code>?</li>
+<li>Task 6: which country grew fastest in the 2010s, and does that
+country also have the lowest unemployment?</li>
+</ol>
+<h2 id="if-you-finish-early-optional-20-min">If you finish early
+(optional, 20 min)</h2>
+<p>Turn the exercise into a step of your lab pipeline: copy the code
+into <code>scripts/04_worldbank.py</code> (paths from
+<code>Path(__file__).resolve().parents[1]</code>, as in the other
+scripts; no <code># %%</code> cells needed), make it print one log line
+with rows in and out, add it to <code>SCRIPTS</code> in
+<code>run_all.py</code>, and pass the delete-outputs test. The
+self-check does not check this task; your run log does.</p>
+<h2 id="two-rules-for-this-exercise">Two rules for this exercise</h2>
+<ul>
+<li>Mark any line that came from an AI with the comment
+<code># AI:</code>, and make sure you can explain it.</li>
+<li>The World Bank data are public. API keys (you need none here) go in
+<code>.env</code>, never in code; and never paste personal or register
+data into a chatbot.</li>
+</ul>
+</main>
+<footer class="wrap">
+  <p>Programming and Data Management for Economics and Finance (NA446A), Part II: Python.
+  Örebro University, autumn 2026. Teacher: <a href="https://magnuslodefalk.com">Magnus Lodefalk</a>.</p>
+  <p>Written in plain text and built with pandoc; every code snippet on this site is run before it is published. Updated 2026-10-22.</p>
+</footer>
+<script>
+document.querySelectorAll("pre").forEach(function (pre) {
+  var b = document.createElement("button");
+  b.className = "copy"; b.type = "button"; b.textContent = "Copy";
+  b.addEventListener("click", function () {
+    var txt = pre.querySelector("code") ? pre.querySelector("code").innerText : pre.innerText;
+    navigator.clipboard.writeText(txt).then(function () {
+      b.textContent = "Copied"; setTimeout(function () { b.textContent = "Copy"; }, 1500);
+    });
+  });
+  pre.appendChild(b);
+});
+</script>
+</body>
+</html>
