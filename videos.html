@@ -1,0 +1,411 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Videos · NA446A Python</title>
+<meta name="description" content="Programming and Data Management, Part II (Python): course site">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Lato:wght@400;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/style.css">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 64 64%22%3E%3Crect width=%2264%22 height=%2264%22 rx=%2212%22 fill=%22%23232b65%22/%3E%3Ctext x=%2232%22 y=%2242%22 font-family=%22sans-serif%22 font-size=%2228%22 font-weight=%22700%22 fill=%22white%22 text-anchor=%22middle%22%3EPy%3C/text%3E%3C/svg%3E">
+</head>
+<body>
+<header class="top">
+  <div class="wrap">
+    <a class="brand" href="index.html"><b>NA446A</b> <span>Python for data you can trust</span></a>
+    <nav>
+      <a href="index.html">Course</a>
+      <a href="setup.html">Setup</a>
+      <a href="sessions.html">Sessions</a>
+      <a href="readings.html">Readings</a>
+      <a href="videos.html">Videos</a>
+      <a href="data.html">Data</a>
+      <a href="ai.html">AI in this course</a>
+      <a href="exam.html">Exam</a>
+      <a href="further.html">Further topics</a>
+    </nav>
+  </div>
+</header>
+<main class="wrap">
+<h1>Videos</h1>
+<p class="subtitle">Six short videos, 6 to 9 minutes each, with
+questions to test yourself.</p>
+<p>Each video shows one idea from the sessions in VS Code, with real
+code and real output. Watch it before or after the session it belongs
+to. Then answer the questions below it <strong>without AI and without
+rewatching</strong>, and only then open the answer. Trying to remember
+is what makes it stick. All videos have English subtitles (click CC on
+YouTube).</p>
+<table>
+<colgroup>
+<col style="width: 25%" />
+<col style="width: 25%" />
+<col style="width: 25%" />
+<col style="width: 25%" />
+</colgroup>
+<thead>
+<tr>
+<th>#</th>
+<th>Video</th>
+<th>Length</th>
+<th>Session</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td><a href="#v1">From Stata to pandas: objects, not commands</a></td>
+<td>8 min</td>
+<td><a href="sessions.html#s1">1</a></td>
+</tr>
+<tr>
+<td>2</td>
+<td><a href="#v2">The intake checklist, worked on one variable</a></td>
+<td>6 min</td>
+<td><a href="sessions.html#s2">2</a></td>
+</tr>
+<tr>
+<td>3</td>
+<td><a href="#v3">Anatomy of a merge audit</a></td>
+<td>8 min</td>
+<td><a href="sessions.html#s3">3</a></td>
+</tr>
+<tr>
+<td>4</td>
+<td><a href="#v4">Wide and long</a></td>
+<td>7 min</td>
+<td><a href="sessions.html#s3">3</a></td>
+</tr>
+<tr>
+<td>5</td>
+<td><a href="#v5">An API call, start to finish</a></td>
+<td>9 min</td>
+<td><a href="sessions.html#s4">4</a></td>
+</tr>
+<tr>
+<td>6</td>
+<td><a href="#v6">run_all and git in eight minutes</a></td>
+<td>7 min</td>
+<td><a href="sessions.html#s4">4</a></td>
+</tr>
+</tbody>
+</table>
+<h2 id="v1">1. From Stata to pandas: objects, not commands</h2>
+<p><strong><a href="https://youtu.be/G3TpcCIQjoE">Watch on
+YouTube</a></strong> (8 min). For Stata users: each dataset is an object
+with a name, you ask it to act, and nothing changes unless you
+assign.</p>
+<p><strong>1. You run <code>japan = cars[cars["origin"] == 3]</code>.
+<code>japan</code> has 79 rows. How many rows does <code>cars</code>
+have now, and how is that different from Stata’s
+<code>keep if origin == 3</code>?</strong></p>
+<details>
+<summary>
+Answer
+</summary>
+Still all 392. The subset is a new object with its own name, and
+<code>cars</code> is untouched. In Stata, <code>keep</code> throws the
+other cars away, and you must load the file again (or use preserve and
+restore) to get them back.
+</details>
+<p><strong>2. You run <code>cars.sort_values("mpg")</code> and then
+<code>cars["mpg"].head(3)</code>. The values are 18, 15, 18. Why are
+they not sorted, and what is the fix?</strong></p>
+<details>
+<summary>
+Answer
+</summary>
+<code>sort_values</code> made a sorted copy and threw it away;
+<code>cars</code> itself never changed. Assign the result: <code>cars =
+cars.sort_values(“mpg”)</code>. In pandas, nothing changes unless you
+assign.
+</details>
+<p><strong>3. Why check <code>cars.shape</code> every time you load a
+file?</strong></p>
+<details>
+<summary>
+Answer
+</summary>
+Python does not tell you the size of what you loaded, as Stata does. A
+wrong number of rows is often the first sign that something went wrong.
+</details>
+<h2 id="v2">2. The intake checklist, worked on one variable</h2>
+<p><strong><a href="https://youtu.be/D_cAyGSENBo">Watch on
+YouTube</a></strong> (6 min). One wage variable through the checklist:
+numbers stored as text, a sentinel code for “refused”, and one extreme
+value.</p>
+<p><strong>1. A wage column has the type <code>str</code>. Why is it
+dangerous to convert it with
+<code>pd.to_numeric(..., errors="coerce")</code> and move
+on?</strong></p>
+<details>
+<summary>
+Answer
+</summary>
+<code>errors=“coerce”</code> turns everything it cannot convert into
+missing, without a word. In the video, 12 real wages written with a
+space between the thousands (“50 100”) would have become missing. Use
+coerce only to find the problem values, fix them (remove the spaces),
+then convert without <code>errors=</code>, so the script crashes if
+anything else is wrong.
+</details>
+<p><strong>2. The documentation says −9 means “refused”.
+<code>isna()</code> shows 4 missing wages. What has it missed, and what
+happens to the mean if you leave it?</strong></p>
+<details>
+<summary>
+Answer
+</summary>
+The sentinel codes: 6 people coded −9, which <code>isna()</code> cannot
+see because −9 is a number. Left in, six people earn −9 kronor a month
+and every mean is wrong. Set them to missing with
+<code>.where(wages[“wage”] != -9)</code>: then 10 are missing.
+</details>
+<p><strong>3. The median wage is about 33,000 kronor and the mean is
+over 49,000. What do you do?</strong></p>
+<details>
+<summary>
+Answer
+</summary>
+Look at the maximum: one person at 3.5 million a month. It may be a
+typing error or a real top earner, so do not delete it. Flag it in a new
+column, check the source, and write the decision down. Without it the
+mean is about 34,000.
+</details>
+<h2 id="v3">3. Anatomy of a merge audit</h2>
+<p><strong><a href="https://youtu.be/sOyTi8ES4c4">Watch on
+YouTube</a></strong> (8 min). Check the key, avoid the silent inner
+merge, stop duplicate keys with <code>validate=</code>, and read the
+<code>_merge</code> column.</p>
+<p><strong>1. You write
+<code>pd.merge(workers, firms, on="firm_id")</code> with 1,000 workers
+and get 950 rows. What happened, and how do you see the missing
+workers?</strong></p>
+<details>
+<summary>
+Answer
+</summary>
+pandas’ default merge is inner: it keeps only keys found in both tables,
+so the 50 workers whose firm is not in the firm table were dropped
+without a warning. Merge with <code>how=“left”</code> (or
+<code>“outer”</code>) and <code>indicator=True</code>; the 50 have
+<code>_merge == “left_only”</code>. Stata’s <code>merge</code> would
+have kept them, with <code>_merge == 1</code>. (Not “50 workers had a
+missing wage”: the merge never looks at wages.)
+</details>
+<p><strong>2. A left merge of 6 workers onto a firm table returns 8
+rows. What is the cause, and which argument would have stopped
+it?</strong></p>
+<details>
+<summary>
+Answer
+</summary>
+A firm id appears more than once in the firm table, so every worker at
+that firm is matched to each copy (in the video, firm 10 twice: its 2
+workers become 4 rows). <code>validate=“many_to_one”</code> (or
+<code>“m:1”</code>) stops the merge with a <code>MergeError</code> that
+names the duplicated key. (Not “a worker is duplicated”: a left merge
+keeps one row per worker unless the key repeats on the right.)
+</details>
+<p><strong>3. After <code>indicator=True</code>, which value of
+<code>_merge</code> marks the workers with no matching firm, and which
+marks the firms with no workers?</strong></p>
+<details>
+<summary>
+Answer
+</summary>
+Workers without a firm: <code>left_only</code> (the workers are the left
+table, the one before <code>.merge</code>). Firms without workers:
+<code>right_only</code>. In a left merge <code>right_only</code> is
+always 0, because rows only in the right table are not kept.
+</details>
+<h2 id="v4">4. Wide and long</h2>
+<p><strong><a href="https://youtu.be/IGjY50UsnxI">Watch on
+YouTube</a></strong> (7 min). <code>melt</code> and <code>pivot</code>,
+their Stata <code>reshape</code> equivalents, and why panel data are
+kept long while you work.</p>
+<p><strong>1. A wide table has 290 municipalities and 10 year columns.
+How many rows does <code>melt(id_vars="municipality")</code>
+give?</strong></p>
+<details>
+<summary>
+Answer
+</summary>
+2,900: one row per municipality and year (290 × 10). Melting multiplies
+the rows by the number of columns melted. (Not 290 or 10.)
+</details>
+<p><strong>2. After <code>melt</code>, <code>long["year"] + 1</code>
+stops with a <code>TypeError</code>. Why, and what is the
+fix?</strong></p>
+<details>
+<summary>
+Answer
+</summary>
+The years came from column names, and column names are text, so
+<code>year</code> is a text column (pandas shows its type as
+<code>str</code>). Convert it: <code>long[“year”] =
+long[“year”].astype(int)</code>. The values are fine; only the type of
+the year column is wrong.
+</details>
+<p><strong>3. <code>pivot</code> stops with
+<code>ValueError: Index contains duplicate entries, cannot reshape</code>.
+What do you check, and with which line?</strong></p>
+<details>
+<summary>
+Answer
+</summary>
+Whether some unit and year appear twice, so pandas does not know which
+value to put in the cell: <code>long.duplicated([“region”,
+“year”]).sum()</code>. It is the same key check as before a merge. (Not
+“pivot needs sorted data”: the order does not matter; the key must be
+unique.)
+</details>
+<h2 id="v5">5. An API call, start to finish</h2>
+<p><strong><a href="https://youtu.be/AYA3gZPG-UI">Watch on
+YouTube</a></strong> (9 min). Sweden’s monthly consumer price index from
+Statistics Sweden’s open API: save the raw answer, check every month
+arrived, read the dates, aggregate to quarters and compute
+inflation.</p>
+<p><strong>1. The table’s metadata lists 560 months, and your data have
+548 rows. What do you do?</strong></p>
+<details>
+<summary>
+Answer
+</summary>
+Stop and find the missing months before any analysis: the <code>assert
+len(rows) == len(months)</code> line should fail exactly here. Perhaps
+the answer was capped or split into pages and you read only part of it.
+Carrying on is the tempting wrong answer: missing months are rarely
+random (usually the latest ones, or a whole block), and they change the
+results.
+</details>
+<p><strong>2. Why does the script save SCB’s answer to
+<code>data/raw/scb/</code> before doing anything else with
+it?</strong></p>
+<details>
+<summary>
+Answer
+</summary>
+The answer is the raw data. SCB revises and rebases its series, and
+addresses can change; the saved file records exactly what you received
+and lets you rerun the analysis without the internet (the Session 4
+lab’s <code>USE_SAVED = True</code> does just that).
+</details>
+<p><strong>3. You turn monthly job-ad counts into quarters with
+<code>.resample("QE").mean()</code>. What is wrong, and what is the
+right rule for the consumer price index?</strong></p>
+<details>
+<summary>
+Answer
+</summary>
+Job ads are a flow, so a quarter’s number is the sum of its three
+months; the mean gives a monthly average, a third of the quarterly
+total. For a price index (or a rate) the mean is right. The rule is
+economics, not code: write it down.
+</details>
+<p><strong>4. The latest quarter shows only two months in the count.
+What do you do with it, and why?</strong></p>
+<details>
+<summary>
+Answer
+</summary>
+Drop it: keep only quarters with all three months
+(<code>quarterly[n_months == 3]</code>). A mean of two months is not a
+quarter, and a year-on-year growth rate built on it is quietly wrong.
+</details>
+<p><strong>5. Code from an old answer online uses
+<code>.resample("Q")</code> and stops with a <code>ValueError</code>.
+Why, and what is the fix?</strong></p>
+<details>
+<summary>
+Answer
+</summary>
+pandas 3 no longer accepts the old alias: write <code>“QE”</code>
+(quarter, labelled by its end date), and <code>“ME”</code> for
+month-end. The dates were read correctly; only the frequency code is out
+of date, as the error message itself says.
+</details>
+<h2 id="v6">6. run_all and git in eight minutes</h2>
+<p><strong><a href="https://youtu.be/BNSsR99E_A4">Watch on
+YouTube</a></strong> (7 min). One script that rebuilds a whole project,
+the delete-outputs test, a log of rows in and out, git, and one minute
+on how a researcher checks AI.</p>
+<p><strong>1. What is the delete-outputs test, and what does it
+prove?</strong></p>
+<details>
+<summary>
+Answer
+</summary>
+Delete everything the code made (<code>data/processed/</code>,
+<code>output/</code>), run <code>run_all.py</code> once, and check that
+everything comes back with the same numbers. It proves that every result
+comes from the raw data through code. It is not a syntax test: scripts
+can run perfectly and still depend on a file you once made by hand,
+which is what the test catches.
+</details>
+<p><strong>2. The run log says
+<code>01_clean.py: 392 rows in, 385 out</code>. What should that line
+also say, and why does it matter?</strong></p>
+<details>
+<summary>
+Answer
+</summary>
+Why rows went: here “dropped 7 cars with 3 or 5 cylinders”. The log is
+the first thing to read when a result looks strange: a step that
+suddenly drops half the sample shows there before it shows in the
+regression.
+</details>
+<p><strong>3. You add a fourth script to the project. What must you
+change in <code>run_all.py</code>?</strong></p>
+<details>
+<summary>
+Answer
+</summary>
+One line: add its path to the <code>SCRIPTS</code> list in the CHANGE
+HERE block, in the place where it should run. The loop below the list
+does not change.
+</details>
+<p><strong>4. In the video’s last minute, how does the researcher use AI
+in research, in one rule?</strong></p>
+<details>
+<summary>
+Answer
+</summary>
+The AI drafts; the researcher checks; every number can be traced to the
+saved script that made it, and every check is written down with its
+date. The same rule as in the course: try first, test on a case you
+know, and own the result.
+</details>
+<p><strong>5. Why are <code>output/</code> and
+<code>data/processed/</code> in <code>.gitignore</code>?</strong></p>
+<details>
+<summary>
+Answer
+</summary>
+<code>run_all.py</code> rebuilds them from the raw data and the code, so
+saving them adds nothing and risks keeping stale copies. They are
+important, but because they are reproducible you save the recipe, not
+the dish.
+</details>
+</main>
+<footer class="wrap">
+  <p>Programming and Data Management for Economics and Finance (NA446A), Part II: Python.
+  Örebro University, autumn 2026. Teacher: <a href="https://magnuslodefalk.com">Magnus Lodefalk</a>.</p>
+  <p>Written in plain text and built with pandoc; every code snippet on this site is run before it is published. Updated 2026-10-22.</p>
+</footer>
+<script>
+document.querySelectorAll("pre").forEach(function (pre) {
+  var b = document.createElement("button");
+  b.className = "copy"; b.type = "button"; b.textContent = "Copy";
+  b.addEventListener("click", function () {
+    var txt = pre.querySelector("code") ? pre.querySelector("code").innerText : pre.innerText;
+    navigator.clipboard.writeText(txt).then(function () {
+      b.textContent = "Copied"; setTimeout(function () { b.textContent = "Copy"; }, 1500);
+    });
+  });
+  pre.appendChild(b);
+});
+</script>
+</body>
+</html>
