@@ -112,13 +112,15 @@ and compare it with your own version, step by step.</p>
 <h2 id="s3">Session 3. Combining data (Tue 27 Oct)</h2>
 <p><strong>Goals.</strong> After this session you can:</p>
 <ol type="1">
-<li>merge two tables with key checks (<code>validate=</code>,
-<code>indicator=</code>), and predict the number of rows before you
-run;</li>
-<li>append yearly files and reshape between long and wide;</li>
-<li>build a person-year panel with a lag that is really last year’s
-value.</li>
+<li>merge two tables, as with Stata’s <code>merge</code>, and check that
+no row vanished or multiplied (<code>validate=</code>,
+<code>indicator=</code>, <code>assert</code>);</li>
+<li>append yearly files, as with Stata’s <code>append</code>;</li>
+<li>make a lag, as with Stata’s <code>L.</code>.</li>
 </ol>
+<p>Every code slide shows the Stata you know first. Reshape (wide and
+long) and the lag across a missing year are self-study slides in the
+appendix.</p>
 <p><strong>Before the session:</strong> read Gentzkow and Shapiro,
 chapter 5, <em>Keys</em> (see <a href="readings.html">Readings</a>).</p>
 <p><strong>Videos:</strong> <a href="videos.html#v3">3. Anatomy of a
@@ -129,16 +131,17 @@ without answers (PDF)</a>. The version with answers is posted after the
 session.</p>
 <p><strong>Lab:</strong> <a href="s3_lab.zip">s3_lab.zip</a>. Unzip it
 and put the folder <code>s3_lab</code> inside your course folder. In
-class, pick a free number 1–30 on the whiteboard, cross it out, and
-download your pair’s <code>pair_NN.zip</code> from the <a
-href="data.html">Data page</a>; unzip it <em>into</em>
-<code>s3_lab</code>. Late or absent? Use pair 00, which is already in
-the folder. Then open <code>s3_lab.py</code>, set <code>PAIR</code> in
-the CHANGE HERE block and run the cells one by one. Self-check:
+class everyone uses pair 00, which is already in the folder: open
+<code>s3_lab.py</code> and run the cells one by one. Each step shows the
+Stata line as a comment; you write the pandas. In class: Steps 1–4. At
+home: Steps 5–7, then Step 8, which runs a cleaning script written the
+way real register code often is (the exercise needs it). Self-check:
 <code>uv run check_s3.py</code> (all right is
-<code>8 of 8 steps right.</code>). The second half is a bug race on a
-cleaning script written the way real register code often is. All data
-are synthetic; no real person or firm is in them.</p>
+<code>8 of 8 steps right.</code>). At home you may use your own data
+instead: any <code>pair_NN.zip</code> from the <a href="data.html">Data
+page</a>, unzipped <em>into</em> <code>s3_lab</code>, with
+<code>PAIR</code> set to match. All data are synthetic; no real person
+or firm is in them.</p>
 <p><strong>Exercise after the session:</strong> <a
 href="exercise-s3.html">the full bug hunt</a>, about 2 hours, in the
 same lab folder (<code>bug_hunt_s3.py</code>, self-check
