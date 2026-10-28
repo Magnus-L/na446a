@@ -153,12 +153,16 @@ posted here on Fri 30 Oct at 08:00, three days after the session.</p>
 <p><strong>Goals.</strong> After this session you can:</p>
 <ol type="1">
 <li>fetch data from an open API, save the raw answer, and check that
-every row arrived;</li>
-<li>handle dates (months to quarters with a stated rule, and growth),
-and do a repeated step with a function and a loop over files;</li>
-<li>rebuild everything with one script that logs rows in and out, query
-a file with DuckDB, and end with one regression table.</li>
+every row arrived, as with Stata’s <code>assert _N == ...</code>;</li>
+<li>handle dates, as with Stata’s <code>monthly()</code>,
+<code>collapse</code> and <code>L4.</code>, and write a repeated step
+once, as with Stata’s <code>program</code>;</li>
+<li>rebuild everything with one script, as with a master do-file, and
+end with one regression table, as with <code>newey</code> and
+<code>esttab</code>.</li>
 </ol>
+<p>Every code slide shows the Stata you know first. DuckDB (querying a
+file too large to load) is a self-study slide in the appendix.</p>
 <p><strong>Before the session:</strong> read Gentzkow and Shapiro,
 chapter 2, <em>Automation</em> (see <a
 href="readings.html">Readings</a>).</p>
@@ -170,10 +174,13 @@ without answers (PDF)</a>. The version with answers is posted after the
 session.</p>
 <p><strong>Lab:</strong> <a href="s4-lab.zip">s4-lab.zip</a>. Unzip it
 inside your course folder. A mini-pipeline from Statistics Sweden’s open
-API to one regression table: fill in the TODOs in
-<code>scripts/01–03</code> and <code>run_all.py</code>, then run
-<code>uv run run_all.py</code>. Self-check:
-<code>uv run check_s4.py</code> (all right is
+API to one regression table. Each TODO shows the Stata line as a
+comment; you write the Python. In class: TODO 1 in
+<code>scripts/01_get_data.py</code>, then TODOs 2a–2d in
+<code>scripts/02_clean.py</code>. At home: TODOs 3–5
+(<code>scripts/03_table.py</code>, <code>run_all.py</code>), then
+<code>uv run run_all.py</code>. Run each script whole with ▷ (Run Python
+File). Self-check: <code>uv run check_s4.py</code> (all right is
 <code>7 of 7 steps right.</code>); it also does the delete-the-outputs
 test. No network? Set <code>USE_SAVED = True</code> in
 <code>scripts/01_get_data.py</code>: the zip holds a saved copy of SCB’s
