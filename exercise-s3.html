@@ -41,13 +41,31 @@ data, so a chatbot that has not seen them cannot give it to you. The
 exam asks you to read code like this and say what it does, without AI.
 Try each task yourself first; use the <a href="ai.html">tutor prompt</a>
 if you are stuck.</p>
+<h2 id="do-this-first-run-the-flawed-script-on-your-data-3-minutes">Do
+this first: run the flawed script on your data (3 minutes)</h2>
+<p>The bug hunt reads the files that
+<code>clean_registers_flawed.py</code> writes. Until it has run on your
+data, <code>pair_00/data/processed/flawed_py/</code> is empty and every
+task fails. This is lab Step 8:</p>
+<ol type="1">
+<li>In VS Code’s Explorer, right-click your pair folder
+(<code>pair_00</code>) and choose <strong>Copy Path</strong>.</li>
+<li>Open <code>s3_lab/clean_registers_flawed.py</code>, press Ctrl+H
+(Mac: Cmd+Alt+F), and replace <code>C:/Users/teacher/project/</code>
+with the path you copied. Use <strong>forward slashes</strong> (Windows
+copies <code>\</code>; change each to <code>/</code>) and end with a
+slash, e.g. <code>C:/Users/anna/na446a-starter/s3_lab/pair_00/</code>.
+Replace All, then save (Ctrl+S).</li>
+<li>Run the whole file with ▷ (Run Python File). It prints nothing but
+writes 20 files into <code>pair_00/data/processed/flawed_py/</code>.
+Check in the Explorer that they are there.</li>
+</ol>
 <h2 id="what-you-need">What you need</h2>
 <p>The Session 3 lab folder <code>s3_lab</code> with a pair folder in
-it, and <code>clean_registers_flawed.py</code> already run on your data
-(lab Step 8, at home: do it first), so that
-<code>pair_NN/data/processed/flawed_py/</code> holds its 20 output
-files. Open <code>na446a-starter</code> in VS Code (the course folder,
-not <code>s3_lab</code> on its own) and work in
+it, and the 20 files from the step above in
+<code>pair_NN/data/processed/flawed_py/</code>. Open
+<code>na446a-starter</code> in VS Code (the course folder, not
+<code>s3_lab</code> on its own) and work in
 <code>s3_lab/bug_hunt_s3.py</code>, one cell at a time. <strong>Which
 pair?</strong> Pair 00 is fine: it is already in <code>s3_lab</code>,
 <code>PAIR = "00"</code> is already set, and the self-check knows its
